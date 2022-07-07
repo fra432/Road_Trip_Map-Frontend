@@ -2,11 +2,13 @@ const locations = {
   features: [
     {
       type: "Feature",
+      id: 960,
       properties: {
-        LOCATION_ID: 960,
-        NAME: "El Gato de Botlero",
-        DESCRIPTIO:
+        name: "El Gato de Botlero",
+        description:
           "Enorme scultura bronzea di un gatto dall'espressione bizzarra del noto artista Fernando Botero",
+        image:
+          "https://i.pinimg.com/originals/e2/2c/42/e22c426611631932791c0c759d6c86da.jpg",
       },
       geometry: {
         type: "Point",
@@ -15,11 +17,13 @@ const locations = {
     },
     {
       type: "Feature",
+      id: 1219,
       properties: {
-        LOCATION_ID: 1219,
-        NAME: "MACBA",
-        DESCRIPTIO:
+        name: "MACBA",
+        description:
           "Il Museo di Arte Contemporanea di Barcellona, conosciuto anche con la sigla MACBA, è dedicato fondamentalmente all'esposizione di opere realizzate durante la seconda metà del XX secolo. È situato nel quartiere de El Raval nella città di Barcellona",
+        image:
+          "https://www.inexhibit.com/wp-content/uploads/2014/01/MACBA-museum-Barcelona-Inexhibit-5-1.jpg",
       },
       geometry: {
         type: "Point",
