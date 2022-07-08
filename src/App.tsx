@@ -1,8 +1,14 @@
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
-import LoginRegisterForm from "./components/LoginRegisterForm/LoginRegisterForm";
+import LoginRegisterPage from "./pages/LoginRegisterPage/LoginRegisterPage";
 
 function App() {
-  return <LoginRegisterForm />;
+  return (
+    <Routes>
+      <Route path="/" element={<Navigate to="/login_register" />} />
+      <Route path="/login_register" element={<LoginRegisterPage />} />
+    </Routes>
+  );
 }
 
 export default App;
