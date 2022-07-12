@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import LoginRegisterPage from "./LoginRegisterPage";
 import React, { useState as useStateMock } from "react";
+import { Provider } from "react-redux";
+import store from "../../redux/store/store";
 
 jest.mock("react", () => ({
   ...jest.requireActual("react"),
@@ -22,7 +24,9 @@ describe("Given a LoginRegisterPage component", () => {
 
       render(
         <BrowserRouter>
-          <LoginRegisterPage />
+          <Provider store={store}>
+            <LoginRegisterPage />
+          </Provider>
         </BrowserRouter>
       );
 
@@ -41,7 +45,9 @@ describe("Given a LoginRegisterPage component", () => {
 
       render(
         <BrowserRouter>
-          <LoginRegisterPage />
+          <Provider store={store}>
+            <LoginRegisterPage />
+          </Provider>
         </BrowserRouter>
       );
 
