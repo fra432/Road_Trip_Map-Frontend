@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.3",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
@@ -62,7 +63,9 @@
     "collectCoverageFrom": [
       "!src/index.tsx",
       "!src/reportWebVitals.ts",
-      "!src/react-app-env.d.ts"
+      "!src/react-app-env.d.ts",
+      "!src/types/types.ts",
+      "!src/App.tsx"
     ]
   }
 }
