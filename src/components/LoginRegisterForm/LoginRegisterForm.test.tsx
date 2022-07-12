@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import LoginRegisterForm from "./LoginRegisterForm";
+import { Provider } from "react-redux";
+import store from "../../redux/store/store";
 
 describe("Given a LoginRegisterForm component", () => {
   describe("When invoked", () => {
@@ -10,7 +12,9 @@ describe("Given a LoginRegisterForm component", () => {
 
       render(
         <BrowserRouter>
-          <LoginRegisterForm />
+          <Provider store={store}>
+            <LoginRegisterForm />
+          </Provider>
         </BrowserRouter>
       );
 
@@ -30,7 +34,9 @@ describe("Given a LoginRegisterForm component", () => {
 
       render(
         <BrowserRouter>
-          <LoginRegisterForm />
+          <Provider store={store}>
+            <LoginRegisterForm />
+          </Provider>
         </BrowserRouter>
       );
 
