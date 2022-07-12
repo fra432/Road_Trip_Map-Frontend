@@ -116,6 +116,9 @@ const LoginRegisterFormStyled = styled.div`
         display: none;
       }
     }
+    .error {
+      border: 1px solid red;
+    }
 
     .button {
       width: 81%;

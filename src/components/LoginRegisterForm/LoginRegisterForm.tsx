@@ -3,16 +3,48 @@ import { BiUserCircle, BiEdit } from "react-icons/bi";
 import { MdOutlineEmail } from "react-icons/md";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { useState } from "react";
+import toast from "react-hot-toast";
 
 const LoginRegisterForm = (): JSX.Element => {
+  const blankData = {
+    email: "",
+    username: "",
+    password: "",
+  };
+
   const [register, setRegister] = useState<boolean>(false);
+  const [formData, setFormData] = useState(blankData);
+  const [error, setError] = useState<string>("");
+
+  const changeFormData = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({
+      ...formData,
+      [event.target.id]: event.target.value,
+    });
+  };
+
+  const sumbitData = (event: React.FormEvent) => {
+    event.preventDefault();
+    toast.dismiss();
+    if (!formData.email.includes("@")) {
+      setError("Invalid Email");
+      toast.error("Invalid Email");
+    } else {
+      setFormData(blankData);
+      setError("");
+    }
+  };
 
   const switchToRegister = () => {
     setRegister(true);
+    setFormData(blankData);
+    setError("");
   };
 
   const switchToLogin = () => {
     setRegister(false);
+    setFormData(blankData);
+    setError("");
   };
 
   return (
@@ -35,19 +67,25 @@ const LoginRegisterForm = (): JSX.Element => {
             <span>Register</span>
           </div>
         </div>
-        <form className="form">
+        <form onSubmit={sumbitData} className="form">
           <h3 className="form-title">{`${
             register ? "Register" : "Login"
           } Here`}</h3>
           <label className="hidden" htmlFor="email">
             Email
           </label>
-          <div className="wrapper">
+          <div
+            className={`wrapper ${error === "Invalid Email" ? "error" : ""}`}
+          >
             <MdOutlineEmail className="icon" />
             <input
+              className={error === "Invalid Email" ? "error" : ""}
               formNoValidate
               autoComplete="off"
               placeholder="Email"
+              value={formData.email}
+              required
+              onChange={changeFormData}
               id="email"
               type="text"
             />
@@ -62,6 +100,10 @@ const LoginRegisterForm = (): JSX.Element => {
                 formNoValidate
                 autoComplete="off"
                 placeholder="Username"
+                value={formData.username}
+                maxLength={15}
+                required
+                onChange={changeFormData}
                 id="username"
                 type="text"
               />
@@ -76,6 +118,11 @@ const LoginRegisterForm = (): JSX.Element => {
               formNoValidate
               autoComplete="off"
               placeholder="Password"
+              value={formData.password}
+              minLength={5}
+              maxLength={15}
+              required
+              onChange={changeFormData}
               id="password"
               type="password"
             />
