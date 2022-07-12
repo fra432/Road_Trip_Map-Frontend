@@ -5,7 +5,7 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAppDispatch } from "../../redux/store/hooks";
-import userThunk from "../../redux/thunks/userThunks";
+import loginThunk from "../../redux/thunks/userThunks";
 
 const LoginRegisterForm = (): JSX.Element => {
   const blankData = {
@@ -34,7 +34,7 @@ const LoginRegisterForm = (): JSX.Element => {
       setError("Invalid Email");
       toast.error("Invalid Email");
     } else {
-      dispatch(userThunk(formData));
+      dispatch(loginThunk(formData));
       setFormData(blankData);
       setError("");
     }
