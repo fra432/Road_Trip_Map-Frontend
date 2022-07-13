@@ -33,3 +33,7 @@ export interface DecodeToken {
   imageBackup: string;
   id: string;
 }
+
+export interface LocationsState {
+  features: Location[];
+}
