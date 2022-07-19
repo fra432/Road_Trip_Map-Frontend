@@ -1,4 +1,5 @@
 export interface Location {
+  id: string;
   type: string;
   properties: {
     name: string;
@@ -22,6 +23,7 @@ export interface UserLogin {
 }
 
 export interface ResponseApiLogin {
+  status?: number;
   data: {
     token: string;
   };

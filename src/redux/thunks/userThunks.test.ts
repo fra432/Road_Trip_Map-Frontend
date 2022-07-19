@@ -24,6 +24,7 @@ describe("Given a loginThunk function", () => {
       };
 
       axios.post = jest.fn().mockResolvedValue({
+        status: 200,
         data: {
           token: mockToken,
         },

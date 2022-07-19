@@ -5,11 +5,7 @@ const LoginRegisterFormStyled = styled.div`
 
   .form-container {
     display: flex;
-    @media (min-width: 735px) {
-      margin-top: 5.5rem;
-    }
     @media (max-width: 735px) {
-      margin-top: 13rem;
       width: 18rem;
       height: 25rem;
       flex-direction: column;

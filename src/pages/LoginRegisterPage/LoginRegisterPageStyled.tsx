@@ -10,7 +10,6 @@ const LoginRegisterPageStyled = styled.div<Props>`
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
   min-height: 100vh;
@@ -21,15 +20,13 @@ const LoginRegisterPageStyled = styled.div<Props>`
   transition: background-image 2s;
 
   header {
-    position: absolute;
-    left: 1%;
-    top: 1%;
+    align-self: flex-start;
+    z-index: 10;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     .logo {
-      z-index: 10;
       width: 15rem;
     }
 

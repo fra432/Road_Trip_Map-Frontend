@@ -10,19 +10,23 @@ const loginThunk = (userData: UserLogin) => async (dispatch: AppDispatch) => {
 
   try {
     const {
+      status,
       data: { token },
     }: ResponseApiLogin = await axios.post(`${url}user/login`, userData);
 
-    const { username, id }: DecodeToken = jwtDecode(token);
+    if (status === 200) {
+      const { username, id }: DecodeToken = jwtDecode(token);
 
-    const userInfo = {
-      username,
-      id,
-    };
+      const userInfo = {
+        username,
+        id,
+      };
 
-    dispatch(loginActionCreator(userInfo));
-    localStorage.setItem("token", token);
-    toast.success("Successfully logged in");
+      dispatch(loginActionCreator(userInfo));
+      localStorage.setItem("token", token);
+      toast.success("Successfully logged in");
+      return status;
+    }
   } catch (error: any) {
     toast.error("Wrong username or password");
     return error.message;

@@ -1,4 +1,9 @@
 import L, { Icon } from "leaflet";
+import "leaflet/dist/leaflet.css";
+import "leaflet-geosearch/dist/geosearch.css";
+import "leaflet/dist/leaflet.css";
+import "esri-leaflet-geocoder/dist/esri-leaflet-geocoder.css";
+
 import {
   MapContainer,
   Marker,
@@ -7,8 +12,9 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import styled from "styled-components";
-import locations from "../../data/locations";
+import { useAppSelector } from "../../redux/store/hooks";
 import MapStyled from "./MapStyled";
+import SearchControl from "../SearchControl/SearchControl";
 
 const StyledPop = styled(Popup)`
   .popup-content {
@@ -19,6 +25,8 @@ const StyledPop = styled(Popup)`
 `;
 
 const Map = () => {
+  const locations = useAppSelector((state) => state.locations);
+
   function MyComponent() {
     const map = useMapEvents({
       click: (e) => {
@@ -76,6 +84,7 @@ const Map = () => {
             </Marker>
           );
         })}
+        <SearchControl />
         <MyComponent />
       </MapContainer>
     </MapStyled>
