@@ -12,6 +12,11 @@ export interface Location {
   };
 }
 
+export interface NewLocation {
+  openLocationForm: boolean;
+  coordinates: number[];
+}
+
 export interface IUser {
   username: string;
   id: string;
