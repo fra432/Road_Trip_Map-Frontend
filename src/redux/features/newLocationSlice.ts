@@ -10,6 +10,10 @@ const newLocationSlice = createSlice({
   name: "newLocation",
   initialState,
   reducers: {
+    addCoordinates: (newLocation, action: PayloadAction<number[]>) => ({
+      ...newLocation,
+      coordinates: [...action.payload],
+    }),
     openLocationForm: (newLocation) => ({
       ...newLocation,
       openLocationForm: true,
@@ -17,10 +21,6 @@ const newLocationSlice = createSlice({
     closeLocationForm: (newLocation) => ({
       ...newLocation,
       openLocationForm: false,
-    }),
-    addCoordinates: (newLocation, action: PayloadAction<number[]>) => ({
-      ...newLocation,
-      coordinates: [...action.payload],
     }),
   },
 });
