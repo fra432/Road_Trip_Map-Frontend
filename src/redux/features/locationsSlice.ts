@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { LocationsState } from "../../types/types";
+import { Location, LocationsState } from "../../types/types";
 
 const initialState: LocationsState = {
   features: [],
@@ -12,10 +12,15 @@ const locationsSlice = createSlice({
     loadLocations: (locations, action: PayloadAction<LocationsState>) => ({
       ...action.payload,
     }),
+    addLocation: (locations, action: PayloadAction<Location>) => ({
+      features: [...locations.features, action.payload],
+    }),
   },
 });
 
-export const { loadLocations: loadLoacationsActionCreator } =
-  locationsSlice.actions;
+export const {
+  loadLocations: loadLoacationsActionCreator,
+  addLocation: addLocationActionCreator,
+} = locationsSlice.actions;
 
 export default locationsSlice.reducer;

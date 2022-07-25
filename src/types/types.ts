@@ -4,7 +4,7 @@ export interface Location {
   properties: {
     name: string;
     description: string;
-    image: string;
+    images: string[];
   };
   geometry: {
     type: string;

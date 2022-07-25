@@ -76,7 +76,7 @@ const Map = () => {
                     className="image"
                     height="100px"
                     width="100px"
-                    src={location.properties.image}
+                    src={location.properties.images[0]}
                     alt={location.properties.name}
                   />
                 </div>
