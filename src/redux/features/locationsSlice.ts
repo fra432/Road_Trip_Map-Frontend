@@ -19,7 +19,7 @@ const locationsSlice = createSlice({
 });
 
 export const {
-  loadLocations: loadLoacationsActionCreator,
+  loadLocations: loadLocationsActionCreator,
   addLocation: addLocationActionCreator,
 } = locationsSlice.actions;
 

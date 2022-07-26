@@ -7,7 +7,7 @@ const HomePageStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   background-image: url("/images/travel-planner.jpeg");
   background-size: cover;
 
@@ -19,17 +19,8 @@ const HomePageStyled = styled.div`
     justify-content: center;
 
     .logo {
-      width: 15rem;
-    }
-
-    .title {
-      z-index: 100;
-      font-family: "Lobster", cursive;
-      width: 20rem;
-      margin: 0;
-      color: #fafafa;
-      margin-left: 1rem;
-      margin-top: -1rem;
+      width: 10rem;
+      padding-top: 1rem;
     }
 
     :before {
