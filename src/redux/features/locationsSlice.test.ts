@@ -1,7 +1,7 @@
 import { mockLocations } from "../../mocks/locationsMocks";
 import locationsSlice, {
   addLocationActionCreator,
-  loadLoacationsActionCreator,
+  loadLocationsActionCreator,
 } from "./locationsSlice";
 
 describe("Given a locationsSlice", () => {
@@ -14,7 +14,7 @@ describe("Given a locationsSlice", () => {
 
       const expectedStatus = mockLocations;
 
-      const loadLocationsAction = loadLoacationsActionCreator(locations);
+      const loadLocationsAction = loadLocationsActionCreator(locations);
 
       const locationsStatus = locationsSlice(
         initialStatus,

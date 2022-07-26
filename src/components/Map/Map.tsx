@@ -79,13 +79,15 @@ const Map = () => {
                 <div className="popup-content">
                   <h2>{location.properties.name}</h2>
                   <p>{location.properties.description}</p>
-                  <img
-                    className="image"
-                    height="100px"
-                    width="100px"
-                    src={location.properties.images[0]}
-                    alt={location.properties.name}
-                  />
+                  {location.properties.images.length !== 0 && (
+                    <img
+                      className="image"
+                      height="100px"
+                      width="100px"
+                      src={location.properties.images[0]}
+                      alt={location.properties.name}
+                    />
+                  )}
                 </div>
               </StyledPop>
             </Marker>

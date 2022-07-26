@@ -19,9 +19,6 @@ const HomePage = () => {
     <HomePageStyled>
       <header>
         <img src="trippy_logo.webp" alt="trippy logo" className="logo" />
-        <h1 className="title">
-          Helping travellers plan the most epic road trip.
-        </h1>
       </header>
       <div className="welcome">
         <span className="welcome__username">Welcome {username}</span>

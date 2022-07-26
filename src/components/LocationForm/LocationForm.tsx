@@ -6,10 +6,14 @@ import { GiCancel } from "react-icons/gi";
 import { Button } from "react-bootstrap";
 import { ChangeEvent, useState } from "react";
 import { ILocationForm } from "../../types/types";
+import { addLocationThunk } from "../../redux/thunks/locationsThunks";
 
 const LocationForm = () => {
   const dispatch = useAppDispatch();
   const { coordinates } = useAppSelector((state) => state.newLocation);
+  const {
+    userInfo: { id },
+  } = useAppSelector((state) => state.user);
 
   const blankData: ILocationForm = {
     name: "",
@@ -40,6 +44,11 @@ const LocationForm = () => {
 
   const closeLocationForm = () => {
     dispatch(closeLocationFormActionCreator());
+    clearData();
+  };
+
+  const clearData = () => {
+    setFormData(blankData);
   };
 
   const submitLocation = (event: React.FormEvent) => {
@@ -50,9 +59,15 @@ const LocationForm = () => {
     newFormData.append("description", formData?.description || "");
     newFormData.append("latitude", coordinates[0].toString());
     newFormData.append("longitude", coordinates[1].toString());
-    formData.images.forEach((image) => {
-      newFormData.append("image", image);
-    });
+    if (formData.images !== []) {
+      formData.images.forEach((image) => {
+        newFormData.append("image", image);
+      });
+    }
+
+    dispatch(addLocationThunk(newFormData, id));
+    clearData();
+    closeLocationForm();
   };
 
   return (
