@@ -12,9 +12,13 @@ import {
   useMapEvents,
 } from "react-leaflet";
 import styled from "styled-components";
-import { useAppSelector } from "../../redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import MapStyled from "./MapStyled";
 import SearchControl from "../SearchControl/SearchControl";
+import {
+  addCoordinatesActionCreator,
+  openLocationFormActionCreator,
+} from "../../redux/features/newLocationSlice";
 
 const StyledPop = styled(Popup)`
   .popup-content {
@@ -26,12 +30,15 @@ const StyledPop = styled(Popup)`
 
 const Map = () => {
   const locations = useAppSelector((state) => state.locations);
+  const dispatch = useAppDispatch();
 
   function MyComponent() {
-    const map = useMapEvents({
-      click: (e) => {
-        const { lat, lng } = e.latlng;
-        L.marker([lat, lng], { icon: marker }).addTo(map);
+    useMapEvents({
+      click: (event) => {
+        const { lat, lng } = event.latlng;
+        dispatch(addCoordinatesActionCreator([lat, lng]));
+        dispatch(openLocationFormActionCreator());
+        /* L.marker([lat, lng], { icon: marker }).addTo(map); */
       },
     });
     return null;
