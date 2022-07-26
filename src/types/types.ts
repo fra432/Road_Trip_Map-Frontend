@@ -44,3 +44,9 @@ export interface DecodeToken {
 export interface LocationsState {
   features: Location[];
 }
+
+export interface ILocationForm {
+  name: string;
+  description?: string;
+  images: string[] | File[];
+}
