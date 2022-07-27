@@ -13,15 +13,13 @@ describe("Given a getLocationsThunk function", () => {
     test("Then it should call the dispatch function whith the loadLoactionActionCreator", async () => {
       const dispatch = jest.fn();
 
-      const userId = "1";
-
       axios.get = jest.fn().mockResolvedValue({
         data: mockLocations,
       });
 
       const loadLocationAction = loadLocationsActionCreator(mockLocations);
 
-      const thunk = getLocationThunk(userId);
+      const thunk = getLocationThunk();
 
       await thunk(dispatch);
 
@@ -32,11 +30,10 @@ describe("Given a getLocationsThunk function", () => {
   describe("When invoked but the api responds with an error", () => {
     test("Then the error toast's method should be invoked", async () => {
       const dispatch = jest.fn();
-      const userId = "1";
 
       axios.get = jest.fn().mockRejectedValue({});
 
-      const thunk = getLocationThunk(userId);
+      const thunk = getLocationThunk();
 
       await thunk(dispatch);
 
@@ -55,7 +52,6 @@ describe("Given a addLocationsThunk function", () => {
     description: "Barcelona's beach barrio",
     images: [],
   };
-  const userId = "1";
   describe("When invoked", () => {
     test("Then it should call the dispatch 2 times", async () => {
       const numberOfDispatchCalls = 2;
@@ -64,7 +60,7 @@ describe("Given a addLocationsThunk function", () => {
         data: mockLocations.features[0],
       });
 
-      const thunk = addLocationThunk(locationData, userId);
+      const thunk = addLocationThunk(locationData);
 
       await thunk(dispatch);
 
@@ -74,11 +70,9 @@ describe("Given a addLocationsThunk function", () => {
 
   describe("When invoked but the api responds with an error", () => {
     test("Then the error toast's method should be invoked", async () => {
-      const userId = "1";
-
       axios.post = jest.fn().mockRejectedValue({});
 
-      const thunk = addLocationThunk(locationData, userId);
+      const thunk = addLocationThunk(locationData);
 
       await thunk(dispatch);
 

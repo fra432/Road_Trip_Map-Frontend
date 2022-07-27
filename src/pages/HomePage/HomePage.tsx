@@ -6,14 +6,14 @@ import HomePageStyled from "./HomePageStyled";
 
 const HomePage = () => {
   const {
-    userInfo: { username, id },
+    userInfo: { username },
   } = useAppSelector((state) => state.user);
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getLocationThunk(id));
-  }, [dispatch, id]);
+    dispatch(getLocationThunk());
+  }, [dispatch]);
 
   return (
     <HomePageStyled>

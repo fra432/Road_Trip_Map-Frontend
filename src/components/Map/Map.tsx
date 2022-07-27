@@ -1,4 +1,4 @@
-import L, { Icon } from "leaflet";
+import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import "leaflet-geosearch/dist/geosearch.css";
 import "leaflet/dist/leaflet.css";
@@ -19,7 +19,7 @@ import {
   addCoordinatesActionCreator,
   openLocationFormActionCreator,
 } from "../../redux/features/newLocationSlice";
-import UserLocationMarker from "../UserLocationMarker/UserLocationMarker";
+import { deleteLocationThunk } from "../../redux/thunks/locationsThunks";
 
 const StyledPop = styled(Popup)`
   .popup-content {
@@ -39,7 +39,6 @@ const Map = () => {
         const { lat, lng } = event.latlng;
         dispatch(addCoordinatesActionCreator([lat, lng]));
         dispatch(openLocationFormActionCreator());
-        /* L.marker([lat, lng], { icon: marker }).addTo(map); */
       },
     });
     return null;
@@ -49,6 +48,12 @@ const Map = () => {
     iconUrl: "/location.png",
     iconSize: [40, 40],
   });
+
+  const deleteLocation = async (event: any, id: string) => {
+    event.stopPropagation();
+    dispatch(deleteLocationThunk(id));
+    debugger;
+  };
 
   return (
     <MapStyled>
@@ -90,7 +95,12 @@ const Map = () => {
                     />
                   )}
                 </div>
-                <button className="button-delete">Delete</button>
+                <button
+                  onClick={(event) => deleteLocation(event, location.id)}
+                  className="button-delete"
+                >
+                  Delete
+                </button>
               </StyledPop>
             </Marker>
           );
