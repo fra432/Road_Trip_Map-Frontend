@@ -1,6 +1,7 @@
 import { mockLocations } from "../../mocks/locationsMocks";
 import locationsSlice, {
   addLocationActionCreator,
+  deleteLocationActionCreator,
   loadLocationsActionCreator,
 } from "./locationsSlice";
 
@@ -40,6 +41,29 @@ describe("Given a locationsSlice", () => {
       const addLocationAction = addLocationActionCreator(newLocation);
 
       const locationsStatus = locationsSlice(initialStatus, addLocationAction);
+
+      expect(locationsStatus).toEqual(expectedStatus);
+    });
+  });
+
+  describe("When it receives an initial status with 2 locations and a deleteLocations action with the id of the first location", () => {
+    test("Then it should return a new status with just the second location", () => {
+      const initialStatus = {
+        features: mockLocations.features,
+      };
+      const firstlocationID = "960";
+
+      const expectedStatus = {
+        features: [mockLocations.features[1]],
+      };
+
+      const deleteLocationsAction =
+        deleteLocationActionCreator(firstlocationID);
+
+      const locationsStatus = locationsSlice(
+        initialStatus,
+        deleteLocationsAction
+      );
 
       expect(locationsStatus).toEqual(expectedStatus);
     });

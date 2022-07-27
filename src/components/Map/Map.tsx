@@ -19,6 +19,7 @@ import {
   addCoordinatesActionCreator,
   openLocationFormActionCreator,
 } from "../../redux/features/newLocationSlice";
+import UserLocationMarker from "../UserLocationMarker/UserLocationMarker";
 
 const StyledPop = styled(Popup)`
   .popup-content {
@@ -89,6 +90,7 @@ const Map = () => {
                     />
                   )}
                 </div>
+                <button className="button-delete">Delete</button>
               </StyledPop>
             </Marker>
           );
