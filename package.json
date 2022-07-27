@@ -75,7 +75,8 @@
       "!src/reportWebVitals.ts",
       "!src/react-app-env.d.ts",
       "!src/types/types.ts",
-      "!src/App.tsx"
+      "!src/App.tsx",
+      "!src/components/UserLocationMarker/UserLocationMarker.tsx"
     ]
   }
 }
