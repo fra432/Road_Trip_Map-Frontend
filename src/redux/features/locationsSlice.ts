@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { features } from "process";
 import { Location, LocationsState } from "../../types/types";
 
 const initialState: LocationsState = {
