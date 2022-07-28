@@ -12,12 +12,50 @@ const MapStyled = styled.div`
     border-radius: 1.9rem;
   }
 
-  .leaflet-popup-content-wrapper .leaflet-popup-content {
+  .leaflet-popup {
+    .leaflet-popup-content-wrapper .leaflet-popup-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      width: 100%;
+
+      p {
+        text-align: center;
+        margin-top: -0.1rem;
+        font-weight: 500;
+      }
+
+      img {
+        width: 10rem;
+        height: 10rem;
+        object-fit: fill;
+        border-radius: 5rem;
+        border: 2px solid #264653;
+      }
+    }
+  }
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+
+    button {
+      background-color: #fff;
+      border-radius: 0.2rem;
+    }
+    .icon {
+      color: #264653;
+      cursor: pointer;
+    }
+  }
+
+  .modal-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    width: 100%;
   }
 `;
 

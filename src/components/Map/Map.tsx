@@ -1,4 +1,7 @@
 import { Icon } from "leaflet";
+import { GiCancel } from "react-icons/gi";
+import { BsInfoCircleFill } from "react-icons/bs";
+
 import "leaflet/dist/leaflet.css";
 import "leaflet-geosearch/dist/geosearch.css";
 import "leaflet/dist/leaflet.css";
@@ -20,6 +23,8 @@ import {
   openLocationFormActionCreator,
 } from "../../redux/features/newLocationSlice";
 import { deleteLocationThunk } from "../../redux/thunks/locationsThunks";
+import { Button, Modal } from "react-bootstrap";
+import { useState } from "react";
 
 const StyledPop = styled(Popup)`
   .popup-content {
@@ -32,6 +37,10 @@ const StyledPop = styled(Popup)`
 const Map = () => {
   const locations = useAppSelector((state) => state.locations);
   const dispatch = useAppDispatch();
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   function MyComponent() {
     useMapEvents({
@@ -52,7 +61,7 @@ const Map = () => {
   const deleteLocation = async (event: any, id: string) => {
     event.stopPropagation();
     dispatch(deleteLocationThunk(id));
-    debugger;
+    handleClose();
   };
 
   return (
@@ -84,23 +93,38 @@ const Map = () => {
               >
                 <div className="popup-content">
                   <h2>{location.properties.name}</h2>
-                  <p>{location.properties.description}</p>
                   {location.properties.images.length !== 0 && (
                     <img
                       className="image"
-                      height="100px"
-                      width="100px"
                       src={location.properties.images[0]}
                       alt={location.properties.name}
                     />
                   )}
                 </div>
-                <button
-                  onClick={(event) => deleteLocation(event, location.id)}
-                  className="button-delete"
-                >
-                  Delete
-                </button>
+                <div className="buttons">
+                  <BsInfoCircleFill size={35} className="icon icon--info" />
+                  <GiCancel
+                    size={35}
+                    className="icon icon--close"
+                    onClick={handleShow}
+                  />
+                  <Modal show={show} onHide={handleClose}>
+                    <Modal.Body>
+                      Are you sure you want to delete this location?
+                    </Modal.Body>
+                    <Modal.Footer>
+                      <Button variant="secondary" onClick={handleClose}>
+                        Close
+                      </Button>
+                      <Button
+                        variant="primary"
+                        onClick={(event) => deleteLocation(event, location.id)}
+                      >
+                        Delete Location
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
+                </div>
               </StyledPop>
             </Marker>
           );
