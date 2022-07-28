@@ -11,9 +11,6 @@ import { addLocationThunk } from "../../redux/thunks/locationsThunks";
 const LocationForm = () => {
   const dispatch = useAppDispatch();
   const { coordinates } = useAppSelector((state) => state.newLocation);
-  const {
-    userInfo: { id },
-  } = useAppSelector((state) => state.user);
 
   const blankData: ILocationForm = {
     name: "",
@@ -65,7 +62,7 @@ const LocationForm = () => {
       });
     }
 
-    dispatch(addLocationThunk(newFormData, id));
+    dispatch(addLocationThunk(newFormData));
     clearData();
     closeLocationForm();
   };

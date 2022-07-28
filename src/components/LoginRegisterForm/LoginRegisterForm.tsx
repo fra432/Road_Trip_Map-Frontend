@@ -39,7 +39,6 @@ const LoginRegisterForm = (): JSX.Element => {
       dispatch(loginThunk(formData));
       setFormData(blankData);
       setError("");
-      navigate("/home");
     }
   };
 

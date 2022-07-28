@@ -1,7 +1,7 @@
 import jwtDecode from "jwt-decode";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import LocationForm from "./components/LocationForm/LocationForm";
 import HomePage from "./pages/HomePage/HomePage";
@@ -12,7 +12,9 @@ import { DecodeToken } from "./types/types";
 
 function App() {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { openLocationForm } = useAppSelector((state) => state.newLocation);
+  const { logged } = useAppSelector((state) => state.user);
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -23,8 +25,9 @@ function App() {
         id,
       };
       dispatch(loginActionCreator(userInfo));
+      navigate("/home");
     }
-  }, [dispatch, token]);
+  }, [dispatch, navigate, token, logged]);
 
   return (
     <>
