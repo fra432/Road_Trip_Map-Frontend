@@ -22,7 +22,10 @@ import {
   addCoordinatesActionCreator,
   openLocationFormActionCreator,
 } from "../../redux/features/newLocationSlice";
-import { deleteLocationThunk } from "../../redux/thunks/locationsThunks";
+import {
+  deleteLocationThunk,
+  getLocationByIdThunk,
+} from "../../redux/thunks/locationsThunks";
 import { Button, Modal } from "react-bootstrap";
 import { useState } from "react";
 
@@ -42,7 +45,7 @@ const Map = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  function MyComponent() {
+  const NewMarker = () => {
     useMapEvents({
       click: (event) => {
         const { lat, lng } = event.latlng;
@@ -51,7 +54,7 @@ const Map = () => {
       },
     });
     return null;
-  }
+  };
 
   const marker = new Icon({
     iconUrl: "/location.png",
@@ -62,6 +65,11 @@ const Map = () => {
     event.stopPropagation();
     dispatch(deleteLocationThunk(id));
     handleClose();
+  };
+
+  const openInfoLocationModal = (event: any, id: string) => {
+    event.stopPropagation();
+    dispatch(getLocationByIdThunk(id));
   };
 
   return (
@@ -101,36 +109,20 @@ const Map = () => {
                     />
                   )}
                 </div>
-                <div className="buttons">
-                  <BsInfoCircleFill size={35} className="icon icon--info" />
-                  <GiCancel
-                    size={35}
-                    className="icon icon--close"
-                    onClick={handleShow}
-                  />
-                  <Modal show={show} onHide={handleClose}>
-                    <Modal.Body>
-                      Are you sure you want to delete this location?
-                    </Modal.Body>
-                    <Modal.Footer>
-                      <Button variant="secondary" onClick={handleClose}>
-                        Close
-                      </Button>
-                      <Button
-                        variant="primary"
-                        onClick={(event) => deleteLocation(event, location.id)}
-                      >
-                        Delete Location
-                      </Button>
-                    </Modal.Footer>
-                  </Modal>
-                </div>
+
+                <BsInfoCircleFill
+                  size={35}
+                  className="icon icon--info"
+                  onClick={(event) => {
+                    openInfoLocationModal(event, location.id);
+                  }}
+                />
               </StyledPop>
             </Marker>
           );
         })}
         <SearchControl />
-        <MyComponent />
+        <NewMarker />
       </MapContainer>
     </MapStyled>
   );

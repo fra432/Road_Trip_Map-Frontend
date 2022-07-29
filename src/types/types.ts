@@ -45,6 +45,18 @@ export interface LocationsState {
   features: Location[];
 }
 
+export interface LocationInfo {
+  id: string;
+  name: string;
+  description?: string;
+  images: string[];
+}
+
+export interface LocationState {
+  infoModalOpen: boolean;
+  locationInfo: LocationInfo;
+}
+
 export interface ILocationForm {
   name: string;
   description?: string;

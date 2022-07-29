@@ -30,26 +30,16 @@ const MapStyled = styled.div`
       img {
         width: 10rem;
         height: 10rem;
-        object-fit: fill;
+        object-fit: cover;
         border-radius: 5rem;
         border: 2px solid #264653;
       }
     }
   }
 
-  .buttons {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-
-    button {
-      background-color: #fff;
-      border-radius: 0.2rem;
-    }
-    .icon {
-      color: #264653;
-      cursor: pointer;
-    }
+  .icon {
+    color: #264653;
+    cursor: pointer;
   }
 
   .modal-content {
