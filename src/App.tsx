@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
+import InfoLocationModal from "./components/InfoLocationModal/InfoLocationModal";
 import LocationForm from "./components/LocationForm/LocationForm";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginRegisterPage from "./pages/LoginRegisterPage/LoginRegisterPage";
@@ -15,6 +16,7 @@ function App() {
   const navigate = useNavigate();
   const { openLocationForm } = useAppSelector((state) => state.newLocation);
   const { logged } = useAppSelector((state) => state.user);
+  const { infoModalOpen } = useAppSelector((state) => state.location);
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -37,6 +39,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
       </Routes>
       {openLocationForm && <LocationForm />}
+      {infoModalOpen && <InfoLocationModal />}
       <Toaster position="bottom-center" reverseOrder={false} />
     </>
   );

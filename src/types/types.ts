@@ -46,6 +46,7 @@ export interface LocationsState {
 }
 
 export interface LocationInfo {
+  id: string;
   name: string;
   description?: string;
   images: string[];

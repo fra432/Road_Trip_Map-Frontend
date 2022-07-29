@@ -6,7 +6,6 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 import { useAppDispatch } from "../../redux/store/hooks";
 import loginThunk from "../../redux/thunks/userThunks";
-import { useNavigate } from "react-router-dom";
 
 const LoginRegisterForm = (): JSX.Element => {
   const blankData = {
@@ -20,7 +19,6 @@ const LoginRegisterForm = (): JSX.Element => {
   const [error, setError] = useState<string>("");
 
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
 
   const changeFormData = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({

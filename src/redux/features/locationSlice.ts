@@ -4,6 +4,7 @@ import { LocationState, LocationInfo } from "../../types/types";
 const initialState: LocationState = {
   infoModalOpen: false,
   locationInfo: {
+    id: "",
     name: "",
     description: "",
     images: [],

@@ -1,5 +1,6 @@
 import axios from "axios";
 import toast from "react-hot-toast";
+import { loadLocationActionCreator } from "../features/locationSlice";
 import {
   addLocationActionCreator,
   loadLocationsActionCreator,
@@ -7,8 +8,9 @@ import {
 } from "../features/locationsSlice";
 import { AppDispatch } from "../store/store";
 
+const url = process.env.REACT_APP_API_URL;
+
 export const getLocationThunk = () => async (dispatch: AppDispatch) => {
-  const url = process.env.REACT_APP_API_URL;
   try {
     const { data } = await axios.get(`${url}locations/`, {
       headers: { Authorization: `Bearer ${localStorage.token}` },
@@ -23,7 +25,6 @@ export const getLocationThunk = () => async (dispatch: AppDispatch) => {
 
 export const addLocationThunk =
   (formData: any) => async (dispatch: AppDispatch) => {
-    const url = process.env.REACT_APP_API_URL;
     try {
       const {
         data: { new_location },
@@ -41,7 +42,6 @@ export const addLocationThunk =
 
 export const deleteLocationThunk =
   (locationId: string) => async (dispatch: AppDispatch) => {
-    const url = process.env.REACT_APP_API_URL;
     try {
       const { status } = await axios.delete(`${url}locations/${locationId}`, {
         headers: { Authorization: `Bearer ${localStorage.token}` },
@@ -52,6 +52,22 @@ export const deleteLocationThunk =
       }
     } catch (error: any) {
       toast.error("Sorry, we were unable to delete this location");
+      return error.message;
+    }
+  };
+
+export const getLocationByIdThunk =
+  (locationId: string) => async (dispatch: AppDispatch) => {
+    try {
+      const {
+        data: { location: locationInfo },
+      } = await axios.get(`${url}locations/${locationId}`, {
+        headers: { Authorization: `Bearer ${localStorage.token}` },
+      });
+
+      dispatch(loadLocationActionCreator(locationInfo));
+    } catch (error: any) {
+      toast.error("Unable to load location info");
       return error.message;
     }
   };

@@ -37,19 +37,9 @@ const MapStyled = styled.div`
     }
   }
 
-  .buttons {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-
-    button {
-      background-color: #fff;
-      border-radius: 0.2rem;
-    }
-    .icon {
-      color: #264653;
-      cursor: pointer;
-    }
+  .icon {
+    color: #264653;
+    cursor: pointer;
   }
 
   .modal-content {
