@@ -1,7 +1,5 @@
 import { Icon } from "leaflet";
-import { GiCancel } from "react-icons/gi";
 import { BsInfoCircleFill } from "react-icons/bs";
-
 import "leaflet/dist/leaflet.css";
 import "leaflet-geosearch/dist/geosearch.css";
 import "leaflet/dist/leaflet.css";
@@ -22,12 +20,7 @@ import {
   addCoordinatesActionCreator,
   openLocationFormActionCreator,
 } from "../../redux/features/newLocationSlice";
-import {
-  deleteLocationThunk,
-  getLocationByIdThunk,
-} from "../../redux/thunks/locationsThunks";
-import { Button, Modal } from "react-bootstrap";
-import { useState } from "react";
+import { getLocationByIdThunk } from "../../redux/thunks/locationsThunks";
 
 const StyledPop = styled(Popup)`
   .popup-content {
@@ -40,10 +33,6 @@ const StyledPop = styled(Popup)`
 const Map = () => {
   const locations = useAppSelector((state) => state.locations);
   const dispatch = useAppDispatch();
-  const [show, setShow] = useState(false);
-
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   const NewMarker = () => {
     useMapEvents({
@@ -60,12 +49,6 @@ const Map = () => {
     iconUrl: "/location.png",
     iconSize: [40, 40],
   });
-
-  const deleteLocation = async (event: any, id: string) => {
-    event.stopPropagation();
-    dispatch(deleteLocationThunk(id));
-    handleClose();
-  };
 
   const openInfoLocationModal = (event: any, id: string) => {
     event.stopPropagation();
