@@ -54,6 +54,36 @@ const HomePageStyled = styled.div`
       font-style: italic;
     }
   }
+
+  .user-options {
+    z-index: 100;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+
+    .option {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+      width: 20rem;
+
+      .image {
+        width: 100%;
+        border: 2px solid #264653;
+        border-radius: 2rem;
+        background-color: #fff;
+      }
+    }
+    .button {
+      height: 3rem;
+      background-color: #fff;
+      color: #264653;
+      border: 2px solid #264653;
+      border-radius: 2rem;
+      font-weight: 600;
+    }
+  }
 `;
 
 export default HomePageStyled;
