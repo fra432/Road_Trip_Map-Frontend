@@ -1,10 +1,16 @@
-import { useAppSelector } from "../../redux/store/hooks";
+import { openTripFormActionCreator } from "../../redux/features/userTripsSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import HomePageStyled from "./HomePageStyled";
 
 const HomePage = () => {
   const {
     userInfo: { username },
   } = useAppSelector((state) => state.user);
+  const dispatch = useAppDispatch();
+
+  const openTripForm = () => {
+    dispatch(openTripFormActionCreator());
+  };
 
   return (
     <HomePageStyled>
@@ -25,7 +31,9 @@ const HomePage = () => {
             alt="path on the map"
             className="image image--map"
           />
-          <button className="button button--create">Create New Trip</button>
+          <button className="button button--create" onClick={openTripForm}>
+            Create New Trip
+          </button>
         </div>
         <div className="option">
           <img

@@ -9,6 +9,7 @@ describe("Given a locationsSlice", () => {
   describe("When it receives an initial empty status and a loadLocations action with 2 locations", () => {
     test("Then it should return a new status with the locations received", () => {
       const initialStatus = {
+        tripId: "",
         features: [],
       };
       const locations = mockLocations;
@@ -29,12 +30,14 @@ describe("Given a locationsSlice", () => {
   describe("When it receives a initial empty status and a addLocation action with a new location", () => {
     test("Then it should return a a new status with the new loaction added to the original empty status", () => {
       const initialStatus = {
+        tripId: "1",
         features: [],
       };
 
       const newLocation = mockLocations.features[0];
 
       const expectedStatus = {
+        tripId: "1",
         features: [mockLocations.features[0]],
       };
 
@@ -49,11 +52,13 @@ describe("Given a locationsSlice", () => {
   describe("When it receives an initial status with 2 locations and a deleteLocations action with the id of the first location", () => {
     test("Then it should return a new status with just the second location", () => {
       const initialStatus = {
+        tripId: "1",
         features: mockLocations.features,
       };
       const firstlocationID = "960";
 
       const expectedStatus = {
+        tripId: "1",
         features: [mockLocations.features[1]],
       };
 

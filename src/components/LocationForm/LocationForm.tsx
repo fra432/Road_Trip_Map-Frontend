@@ -7,10 +7,12 @@ import { Button } from "react-bootstrap";
 import { ChangeEvent, useState } from "react";
 import { ILocationForm } from "../../types/types";
 import { addLocationThunk } from "../../redux/thunks/locationsThunks";
+/* import { addLocationThunk } from "../../redux/thunks/locationsThunks"; */
 
 const LocationForm = () => {
   const dispatch = useAppDispatch();
   const { coordinates } = useAppSelector((state) => state.newLocation);
+  const { tripId } = useAppSelector((state) => state.locations);
 
   const blankData: ILocationForm = {
     name: "",
@@ -62,7 +64,7 @@ const LocationForm = () => {
       });
     }
 
-    dispatch(addLocationThunk(newFormData));
+    dispatch(addLocationThunk(newFormData, tripId));
     clearData();
     closeLocationForm();
   };

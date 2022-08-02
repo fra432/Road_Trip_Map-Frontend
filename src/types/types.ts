@@ -1,6 +1,7 @@
 export interface Location {
   id: string;
   type: string;
+  trip?: string;
   properties: {
     name: string;
     description: string;
@@ -42,6 +43,7 @@ export interface DecodeToken {
 }
 
 export interface LocationsState {
+  tripId: string;
   features: Location[];
 }
 

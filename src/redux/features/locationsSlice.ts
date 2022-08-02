@@ -2,6 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { Location, LocationsState } from "../../types/types";
 
 const initialState: LocationsState = {
+  tripId: "",
   features: [],
 };
 
@@ -13,9 +14,11 @@ const locationsSlice = createSlice({
       ...action.payload,
     }),
     addLocation: (locations, action: PayloadAction<Location>) => ({
+      ...locations,
       features: [...locations.features, action.payload],
     }),
     deleteLocation: (locations, action: PayloadAction<string>) => ({
+      ...locations,
       features: locations.features.filter(
         (location) => location.id !== action.payload
       ),

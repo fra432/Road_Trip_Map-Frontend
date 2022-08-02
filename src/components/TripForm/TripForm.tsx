@@ -1,12 +1,12 @@
 import Form from "react-bootstrap/Form";
-import { closeLocationFormActionCreator } from "../../redux/features/newLocationSlice";
+import { closeTripFormActionCreator } from "../../redux/features/userTripsSlice";
 import { useAppDispatch } from "../../redux/store/hooks";
 import { GiCancel } from "react-icons/gi";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
 import { ITrip } from "../../types/types";
-import { addLocationThunk } from "../../redux/thunks/locationsThunks";
 import LocationFormStyled from "../LocationForm/LocationFormStyled";
+import { addTripThunk } from "../../redux/thunks/tripsThunks";
 
 const TripForm = () => {
   const dispatch = useAppDispatch();
@@ -25,8 +25,8 @@ const TripForm = () => {
     });
   };
 
-  const closeLocationForm = () => {
-    dispatch(closeLocationFormActionCreator());
+  const closeTripForm = () => {
+    dispatch(closeTripFormActionCreator());
     clearData();
   };
 
@@ -36,16 +36,15 @@ const TripForm = () => {
 
   const submitTrip = (event: React.FormEvent) => {
     event.preventDefault();
-
-    dispatch(addLocationThunk(formData));
+    dispatch(addTripThunk(formData));
     clearData();
-    closeLocationForm();
+    closeTripForm();
   };
 
   return (
     <LocationFormStyled>
       <Form onSubmit={submitTrip} className="form">
-        <Form.Label htmlFor="name">Location Name</Form.Label>
+        <Form.Label htmlFor="name">Trip Name</Form.Label>
         <Form.Control
           formNoValidate
           autoComplete="off"
@@ -70,7 +69,7 @@ const TripForm = () => {
           <GiCancel
             size={35}
             className="icon icon--close"
-            onClick={closeLocationForm}
+            onClick={closeTripForm}
           />
           <Button type="submit" className="button button--submit">
             Add Trip

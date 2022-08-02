@@ -5,6 +5,7 @@ import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
 import InfoLocationModal from "./components/InfoLocationModal/InfoLocationModal";
 import LocationForm from "./components/LocationForm/LocationForm";
+import TripForm from "./components/TripForm/TripForm";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginRegisterPage from "./pages/LoginRegisterPage/LoginRegisterPage";
 import { loginActionCreator } from "./redux/features/userSlice";
@@ -15,6 +16,7 @@ function App() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { openLocationForm } = useAppSelector((state) => state.newLocation);
+  const { openTripForm } = useAppSelector((state) => state.userTrips);
   const { logged } = useAppSelector((state) => state.user);
   const { infoModalOpen } = useAppSelector((state) => state.location);
   const token = localStorage.getItem("token");
@@ -40,6 +42,7 @@ function App() {
       </Routes>
       {openLocationForm && <LocationForm />}
       {infoModalOpen && <InfoLocationModal />}
+      {openTripForm && <TripForm />}
       <Toaster position="bottom-center" reverseOrder={false} />
     </>
   );
