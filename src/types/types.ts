@@ -71,4 +71,5 @@ export interface ITrip {
 
 export interface UserTrips {
   userTrips: ITrip[];
+  openTripForm: boolean;
 }

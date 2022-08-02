@@ -3,6 +3,7 @@ import { ITrip, UserTrips } from "../../types/types";
 
 const initialState: UserTrips = {
   userTrips: [],
+  openTripForm: false,
 };
 
 const userTripsSlice = createSlice({
@@ -10,11 +11,24 @@ const userTripsSlice = createSlice({
   initialState,
   reducers: {
     loadTrips: (userTrips, action: PayloadAction<ITrip[]>) => ({
+      ...userTrips,
       userTrips: [...action.payload],
+    }),
+    openTripForm: (userTrips) => ({
+      ...userTrips,
+      openTripForm: true,
+    }),
+    closeTripForm: (userTrips) => ({
+      ...userTrips,
+      openTripForm: false,
     }),
   },
 });
 
-export const { loadTrips: loadTripsActionCreator } = userTripsSlice.actions;
+export const {
+  loadTrips: loadTripsActionCreator,
+  openTripForm: openTripFormActionCreator,
+  closeTripForm: closeTripFormActionCreator,
+} = userTripsSlice.actions;
 
 export default userTripsSlice.reducer;
