@@ -10,30 +10,31 @@ import { AppDispatch } from "../store/store";
 
 const url = process.env.REACT_APP_API_URL;
 
-export const getLocationThunk = () => async (dispatch: AppDispatch) => {
-  try {
-    const { data } = await axios.get(`${url}locations/`, {
-      headers: { Authorization: `Bearer ${localStorage.token}` },
-    });
+export const getLocationsThunk =
+  (tripId: string) => async (dispatch: AppDispatch) => {
+    try {
+      const { data } = await axios.get(`${url}trips/${tripId}`, {
+        headers: { Authorization: `Bearer ${localStorage.token}` },
+      });
 
-    dispatch(loadLocationsActionCreator(data));
-  } catch (error: any) {
-    toast.error("Sorry, we were unable to find any favorite location");
-    return error.message;
-  }
-};
+      dispatch(loadLocationsActionCreator(data));
+    } catch (error: any) {
+      toast.error("Sorry, we were unable to find any favorite location");
+      return error.message;
+    }
+  };
 
 export const addLocationThunk =
-  (formData: any) => async (dispatch: AppDispatch) => {
+  (formData: any, tripId: string) => async (dispatch: AppDispatch) => {
     try {
       const {
         data: { new_location },
-      } = await axios.post(`${url}locations/`, formData, {
+      } = await axios.post(`${url}locations/${tripId}`, formData, {
         headers: { Authorization: `Bearer ${localStorage.token}` },
       });
 
       await dispatch(addLocationActionCreator(new_location));
-      dispatch(getLocationThunk());
+      dispatch(getLocationsThunk(tripId));
     } catch (error: any) {
       toast.error("Sorry, we were unable to add a new location");
       return error.message;

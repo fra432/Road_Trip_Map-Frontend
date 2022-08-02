@@ -4,7 +4,7 @@ import { mockLocations } from "../../mocks/locationsMocks";
 import {
   addLocationThunk,
   deleteLocationThunk,
-  getLocationThunk,
+  getLocationsThunk,
 } from "./locationsThunks";
 import {
   loadLocationsActionCreator,
@@ -19,14 +19,18 @@ describe("Given a getLocationsThunk function", () => {
   describe("When invoked", () => {
     test("Then it should call the dispatch function whith the loadLoactionActionCreator", async () => {
       const dispatch = jest.fn();
+      const tripId = "1";
 
       axios.get = jest.fn().mockResolvedValue({
-        data: mockLocations,
+        data: {
+          tripId,
+          features: mockLocations.features,
+        },
       });
 
       const loadLocationAction = loadLocationsActionCreator(mockLocations);
 
-      const thunk = getLocationThunk();
+      const thunk = getLocationsThunk(tripId);
 
       await thunk(dispatch);
 
@@ -37,10 +41,11 @@ describe("Given a getLocationsThunk function", () => {
   describe("When invoked but the api responds with an error", () => {
     test("Then the error toast's method should be invoked", async () => {
       const dispatch = jest.fn();
+      const tripId = "1";
 
       axios.get = jest.fn().mockRejectedValue({});
 
-      const thunk = getLocationThunk();
+      const thunk = getLocationsThunk(tripId);
 
       await thunk(dispatch);
 
@@ -62,12 +67,13 @@ describe("Given a addLocationsThunk function", () => {
   describe("When invoked", () => {
     test("Then it should call the dispatch 2 times", async () => {
       const numberOfDispatchCalls = 2;
+      const tripId = "1";
 
       axios.post = jest.fn().mockResolvedValue({
         data: mockLocations.features[0],
       });
 
-      const thunk = addLocationThunk(locationData);
+      const thunk = addLocationThunk(locationData, tripId);
 
       await thunk(dispatch);
 
@@ -78,8 +84,9 @@ describe("Given a addLocationsThunk function", () => {
   describe("When invoked but the api responds with an error", () => {
     test("Then the error toast's method should be invoked", async () => {
       axios.post = jest.fn().mockRejectedValue({});
+      const tripId = "1";
 
-      const thunk = addLocationThunk(locationData);
+      const thunk = addLocationThunk(locationData, tripId);
 
       await thunk(dispatch);
 

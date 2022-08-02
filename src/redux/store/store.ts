@@ -3,6 +3,7 @@ import locationReducer from "../features/locationSlice";
 import locationsReducer from "../features/locationsSlice";
 import newLocationReducer from "../features/newLocationSlice";
 import userReducer from "../features/userSlice";
+import userTripsReducer from "../features/userTripsSlice";
 
 const store = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ const store = configureStore({
     locations: locationsReducer,
     newLocation: newLocationReducer,
     location: locationReducer,
+    userTrips: userTripsReducer,
   },
 });
 

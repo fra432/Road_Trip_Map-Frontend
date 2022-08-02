@@ -1,6 +1,7 @@
 export interface Location {
   id: string;
   type: string;
+  trip?: string;
   properties: {
     name: string;
     description: string;
@@ -42,6 +43,7 @@ export interface DecodeToken {
 }
 
 export interface LocationsState {
+  tripId: string;
   features: Location[];
 }
 
@@ -61,4 +63,15 @@ export interface ILocationForm {
   name: string;
   description?: string;
   images: string[] | File[];
+}
+
+export interface ITrip {
+  id?: string;
+  name: string;
+  image: string;
+}
+
+export interface UserTrips {
+  userTrips: ITrip[];
+  openTripForm: boolean;
 }

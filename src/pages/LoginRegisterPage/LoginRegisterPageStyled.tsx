@@ -33,6 +33,7 @@ const LoginRegisterPageStyled = styled.div<Props>`
     .title {
       font-family: "Lobster", cursive;
       width: 20rem;
+      font-size: 1.7rem;
       margin: 0;
       color: #fafafa;
       margin-left: 1rem;

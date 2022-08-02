@@ -1,8 +1,10 @@
 export const mockLocations = {
+  tripId: "1",
   features: [
     {
       type: "Feature",
       id: "960",
+      trip: "1",
       properties: {
         name: "El Gato de Botlero",
         description:
@@ -19,6 +21,7 @@ export const mockLocations = {
     {
       type: "Feature",
       id: "1219",
+      trip: "1",
       properties: {
         name: "MACBA",
         description:
