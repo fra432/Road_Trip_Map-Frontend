@@ -62,3 +62,13 @@ export interface ILocationForm {
   description?: string;
   images: string[] | File[];
 }
+
+export interface ITrip {
+  id?: string;
+  name: string;
+  image: string;
+}
+
+export interface UserTrips {
+  userTrips: ITrip[];
+}
