@@ -7,33 +7,20 @@ const HomePageStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
   background-image: url("/images/travel-planner.jpeg");
   background-size: cover;
 
-  header {
-    align-self: flex-start;
-    display: flex;
-    z-index: 100;
-    flex-direction: column;
-    justify-content: center;
-
-    .logo {
-      width: 10rem;
-      padding-top: 1rem;
-    }
-
-    :before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      min-height: 100%;
-      background-color: #5c5a58;
-      opacity: 0.5;
-      z-index: -1;
-    }
+  :before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100%;
+    background-color: #5c5a58;
+    opacity: 0.5;
   }
   .welcome {
     display: flex;
@@ -46,8 +33,6 @@ const HomePageStyled = styled.div`
       font-weight: 600;
       font-size: 1.6rem;
     }
-
-    
   }
 
   .user-options {
