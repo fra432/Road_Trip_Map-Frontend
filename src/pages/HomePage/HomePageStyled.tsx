@@ -47,12 +47,7 @@ const HomePageStyled = styled.div`
       font-size: 1.6rem;
     }
 
-    &__description {
-      font-size: 1.3rem;
-      font-weight: 600;
-      text-align: center;
-      font-style: italic;
-    }
+    
   }
 
   .user-options {

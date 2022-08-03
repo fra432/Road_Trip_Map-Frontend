@@ -1,4 +1,5 @@
 export const mockLocations = {
+  name: "Barcelona",
   tripId: "1",
   features: [
     {
@@ -21,6 +22,7 @@ export const mockLocations = {
     {
       type: "Feature",
       id: "1219",
+      name: "Barcelona",
       trip: "1",
       properties: {
         name: "MACBA",

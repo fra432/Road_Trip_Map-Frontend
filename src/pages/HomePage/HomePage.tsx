@@ -19,10 +19,6 @@ const HomePage = () => {
       </header>
       <div className="welcome">
         <span className="welcome__username">Welcome {username}</span>
-        <p className="welcome__description">
-          Choose your favorite locations from the map and plan your perfect
-          trip!
-        </p>
       </div>
       <div className="user-options">
         <div className="option">

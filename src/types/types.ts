@@ -43,6 +43,7 @@ export interface DecodeToken {
 }
 
 export interface LocationsState {
+  name: string;
   tripId: string;
   features: Location[];
 }
