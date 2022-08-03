@@ -20,9 +20,11 @@ describe("Given a getLocationsThunk function", () => {
     test("Then it should call the dispatch function whith the loadLoactionActionCreator", async () => {
       const dispatch = jest.fn();
       const tripId = "1";
+      const name = "Barcelona";
 
       axios.get = jest.fn().mockResolvedValue({
         data: {
+          name,
           tripId,
           features: mockLocations.features,
         },

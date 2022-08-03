@@ -8,6 +8,7 @@ import LocationForm from "./components/LocationForm/LocationForm";
 import TripForm from "./components/TripForm/TripForm";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginRegisterPage from "./pages/LoginRegisterPage/LoginRegisterPage";
+import MapPage from "./pages/MapPage/MapPage";
 import { loginActionCreator } from "./redux/features/userSlice";
 import { useAppDispatch, useAppSelector } from "./redux/store/hooks";
 import { DecodeToken } from "./types/types";
@@ -29,7 +30,7 @@ function App() {
         id,
       };
       dispatch(loginActionCreator(userInfo));
-      navigate("/home");
+      /* navigate("/home"); */
     }
   }, [dispatch, navigate, token, logged]);
 
@@ -39,6 +40,7 @@ function App() {
         <Route path="/" element={<Navigate to="/login_register" />} />
         <Route path="/login_register" element={<LoginRegisterPage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/map" element={<MapPage />} />
       </Routes>
       {openLocationForm && <LocationForm />}
       {infoModalOpen && <InfoLocationModal />}
