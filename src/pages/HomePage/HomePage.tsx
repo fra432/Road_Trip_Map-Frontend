@@ -14,9 +14,6 @@ const HomePage = () => {
 
   return (
     <HomePageStyled>
-      <header>
-        <img src="trippy_logo.webp" alt="trippy logo" className="logo" />
-      </header>
       <div className="welcome">
         <span className="welcome__username">Welcome {username}</span>
       </div>

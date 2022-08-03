@@ -25,6 +25,7 @@ const MapPageStyled = styled.div`
 
   .page-content {
     z-index: 100;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
