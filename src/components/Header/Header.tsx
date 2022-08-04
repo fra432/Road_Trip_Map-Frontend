@@ -1,12 +1,16 @@
 import HeaderStyled from "./HeaderStyled";
 import { ImSwitch } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { logoutActionCreator } from "../../redux/features/userSlice";
 
 const Header = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const logout = () => {
     localStorage.clear();
+    dispatch(logoutActionCreator());
   };
 
   const navigateToHome = () => {
