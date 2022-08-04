@@ -9,7 +9,7 @@ const HomePageStyled = styled.div`
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  background-image: url("/images/travel-planner.jpeg");
+  background-image: url("/images/background2.jpeg");
   background-size: cover;
 
   :before {
