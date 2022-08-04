@@ -20,10 +20,13 @@ const TripForm = () => {
 
   const [formData, setFormData] = useState(blankData);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
-      [event.target.id]: event.target.value,
+      [event.target.id]:
+        event.target.type === "file"
+          ? (event.target as HTMLInputElement).files?.[0] || ""
+          : event.target.value,
     });
   };
 
@@ -38,7 +41,12 @@ const TripForm = () => {
 
   const submitTrip = (event: React.FormEvent) => {
     event.preventDefault();
-    dispatch(addTripThunk(formData));
+
+    const newFormData = new FormData();
+    newFormData.append("name", formData.name);
+    newFormData.append("image", formData.image);
+
+    dispatch(addTripThunk(newFormData));
     clearData();
     closeTripForm();
     navigate("/map");
@@ -59,13 +67,11 @@ const TripForm = () => {
           value={formData.name}
           onChange={handleChange}
         />
-        <Form.Label htmlFor="image">Image URL</Form.Label>
+        <Form.Label htmlFor="image">Add image</Form.Label>
         <Form.Control
-          formNoValidate
-          autoComplete="off"
           id="image"
-          type="text"
-          value={formData.image}
+          accept="image/*"
+          type="file"
           onChange={handleChange}
         />
         <div className="buttons">

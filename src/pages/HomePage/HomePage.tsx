@@ -1,5 +1,6 @@
 import { openTripFormActionCreator } from "../../redux/features/userTripsSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
+import { getUserTripsThunk } from "../../redux/thunks/tripsThunks";
 import HomePageStyled from "./HomePageStyled";
 
 const HomePage = () => {
@@ -10,6 +11,10 @@ const HomePage = () => {
 
   const openTripForm = () => {
     dispatch(openTripFormActionCreator());
+  };
+
+  const showUserTrips = () => {
+    dispatch(getUserTripsThunk());
   };
 
   return (
@@ -34,7 +39,9 @@ const HomePage = () => {
             alt="world spinning gif"
             className="image image--globe"
           />
-          <button className="button button--create">My Trips</button>
+          <button onClick={showUserTrips} className="button button--create">
+            My Trips
+          </button>
         </div>
       </div>
     </HomePageStyled>

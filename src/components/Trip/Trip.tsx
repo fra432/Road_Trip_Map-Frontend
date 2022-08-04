@@ -7,7 +7,7 @@ const Trip = ({
 }) => {
   return (
     <TripStyled>
-      <img src={image} alt="card cover" />
+      <img src={image ? image : "/images/background4.jpeg"} alt="card cover" />
       <div className="info">
         <h4 className="name">{name}</h4>
       </div>
