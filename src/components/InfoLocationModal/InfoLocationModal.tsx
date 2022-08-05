@@ -36,9 +36,9 @@ const InfoLocationModal = () => {
         <span className="line"></span>
         {images && (
           <CCarousel controls indicators transition="crossfade">
-            {images.map((image) => {
+            {images.map((image, position) => {
               return (
-                <CCarouselItem>
+                <CCarouselItem key={position}>
                   <CImage className="d-block w-100" src={image} alt={name} />
                 </CCarouselItem>
               );

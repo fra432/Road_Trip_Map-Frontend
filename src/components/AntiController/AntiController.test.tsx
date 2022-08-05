@@ -1,6 +1,5 @@
 import { render, screen } from "@testing-library/react";
-
-import Controller from "./Controller";
+import AntiController from "./AntiController";
 
 const mockUseNavigate = jest.fn();
 
@@ -8,7 +7,7 @@ jest.mock("react-router-dom", () => ({
   useNavigate: () => mockUseNavigate,
 }));
 
-let mockLogged = false;
+let mockLogged = true;
 
 jest.mock("../../redux/store/hooks", () => ({
   useAppSelector: () => ({ logged: mockLogged }),
@@ -18,21 +17,21 @@ describe("Given a Controller function", () => {
   describe("When it's invoked", () => {
     test("Then it should navigate to the login when the user is not logged", () => {
       render(
-        <Controller>
+        <AntiController>
           <h1>Hello</h1>
-        </Controller>
+        </AntiController>
       );
 
-      expect(mockUseNavigate).toHaveBeenCalledWith("/login_register");
+      expect(mockUseNavigate).toHaveBeenCalledWith("/home");
     });
 
     test("Then it should render its children when the user is logged", () => {
-      mockLogged = true;
+      mockLogged = false;
 
       render(
-        <Controller>
+        <AntiController>
           <h1>Hello</h1>
-        </Controller>
+        </AntiController>
       );
 
       const header = screen.getByRole("heading", { name: "Hello" });

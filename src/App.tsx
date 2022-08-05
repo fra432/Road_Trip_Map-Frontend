@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
+import AntiController from "./components/AntiController/AntiController";
 import Controller from "./components/Controller/Controller";
 import Header from "./components/Header/Header";
 import InfoLocationModal from "./components/InfoLocationModal/InfoLocationModal";
@@ -42,7 +43,14 @@ function App() {
       {logged && <Header />}
       <Routes>
         <Route path="/" element={<Navigate to="/login_register" />} />
-        <Route path="/login_register" element={<LoginRegisterPage />} />
+        <Route
+          path="/login_register"
+          element={
+            <AntiController>
+              <LoginRegisterPage />
+            </AntiController>
+          }
+        />
         <Route
           path="/home"
           element={
