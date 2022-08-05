@@ -12,7 +12,7 @@ const Controller = ({ children }: Props) => {
 
   useEffect(() => {
     if (!token) {
-      navigate("/user/login");
+      navigate("/login_register");
     }
   }, [navigate, token]);
 

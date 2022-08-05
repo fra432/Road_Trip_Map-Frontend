@@ -6,7 +6,6 @@ import { getUserTripsThunk } from "../../redux/thunks/tripsThunks";
 
 const TripsList = () => {
   const { userTrips } = useAppSelector((state) => state.userTrips);
-
   const dispatch = useAppDispatch();
 
   useLayoutEffect(() => {
@@ -16,7 +15,7 @@ const TripsList = () => {
   return (
     <TripsListStyled>
       {userTrips.map((trip) => {
-        return <Trip key={trip.id} trip={trip} />;
+        return <Trip key={trip.id as string} trip={trip} />;
       })}
     </TripsListStyled>
   );
