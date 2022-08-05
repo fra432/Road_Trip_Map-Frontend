@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
+import Controller from "./components/Controller/Controller";
 import Header from "./components/Header/Header";
 import InfoLocationModal from "./components/InfoLocationModal/InfoLocationModal";
 import LocationForm from "./components/LocationForm/LocationForm";
@@ -10,6 +11,7 @@ import TripForm from "./components/TripForm/TripForm";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginRegisterPage from "./pages/LoginRegisterPage/LoginRegisterPage";
 import MapPage from "./pages/MapPage/MapPage";
+import TripsListPage from "./pages/TripsListPage/TripsListPage";
 import { loginActionCreator } from "./redux/features/userSlice";
 import { useAppDispatch, useAppSelector } from "./redux/store/hooks";
 import { DecodeToken } from "./types/types";
@@ -41,8 +43,30 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/login_register" />} />
         <Route path="/login_register" element={<LoginRegisterPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/map" element={<MapPage />} />
+        <Route
+          path="/home"
+          element={
+            <Controller>
+              <HomePage />
+            </Controller>
+          }
+        />
+        <Route
+          path="/map"
+          element={
+            <Controller>
+              <MapPage />
+            </Controller>
+          }
+        />
+        <Route
+          path="/my_trips"
+          element={
+            <Controller>
+              <TripsListPage />
+            </Controller>
+          }
+        />
       </Routes>
       {openLocationForm && <LocationForm />}
       {infoModalOpen && <InfoLocationModal />}

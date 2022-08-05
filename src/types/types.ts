@@ -67,7 +67,7 @@ export interface ILocationForm {
 }
 
 export interface ITrip {
-  id?: string;
+  id: string;
   name: string;
   image: string;
 }

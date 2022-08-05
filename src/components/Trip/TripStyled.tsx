@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const TripStyled = styled.div`
+const TripStyled = styled.li`
   z-index: 200;
   width: 20rem;
   height: 20rem;
-  border: 2px solid #fff;
+  border: 2px solid #264653;
   border-radius: 10rem;
   padding: 1.5rem;
   background: white;
@@ -14,6 +14,7 @@ const TripStyled = styled.div`
   align-items: center;
   transition: 0.4s ease-out;
   box-shadow: 0px 7px 10px rgba(black, 0.5);
+  cursor: pointer;
 
   :hover {
     transform: translateY(20px);

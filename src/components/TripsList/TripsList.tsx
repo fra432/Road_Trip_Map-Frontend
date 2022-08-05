@@ -16,7 +16,7 @@ const TripsList = () => {
   return (
     <TripsListStyled>
       {userTrips.map((trip) => {
-        return <Trip trip={trip} />;
+        return <Trip key={trip.id} trip={trip} />;
       })}
     </TripsListStyled>
   );
