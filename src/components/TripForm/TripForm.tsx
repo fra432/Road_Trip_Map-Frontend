@@ -4,7 +4,6 @@ import { useAppDispatch } from "../../redux/store/hooks";
 import { GiCancel } from "react-icons/gi";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
-import { ITrip } from "../../types/types";
 import LocationFormStyled from "../LocationForm/LocationFormStyled";
 import { addTripThunk } from "../../redux/thunks/tripsThunks";
 import { useNavigate } from "react-router-dom";
@@ -13,7 +12,7 @@ const TripForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const blankData: ITrip = {
+  const blankData: { name: string; image: string } = {
     name: "",
     image: "",
   };

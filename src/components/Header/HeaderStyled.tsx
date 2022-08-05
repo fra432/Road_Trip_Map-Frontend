@@ -1,14 +1,14 @@
 import styled from "styled-components";
 
 const HeaderStyled = styled.div`
-  padding-top: 1rem;
-  position: absolute;
+  padding: 0.9rem;
   top: 0%;
-  background-color: rgba(255, 255, 255, 0);
+  background-color: #264653;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 2px solid #fff;
 
   .logo {
     z-index: 100;
@@ -26,7 +26,8 @@ const HeaderStyled = styled.div`
     color: #fff;
 
     span {
-      font-weight: 600;
+      font-size: 0.8rem;
+      font-weight: 500;
     }
   }
 `;

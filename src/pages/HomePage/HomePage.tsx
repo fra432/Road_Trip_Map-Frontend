@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { openTripFormActionCreator } from "../../redux/features/userTripsSlice";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { getUserTripsThunk } from "../../redux/thunks/tripsThunks";
@@ -8,6 +9,7 @@ const HomePage = () => {
     userInfo: { username },
   } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const openTripForm = () => {
     dispatch(openTripFormActionCreator());
@@ -15,6 +17,7 @@ const HomePage = () => {
 
   const showUserTrips = () => {
     dispatch(getUserTripsThunk());
+    navigate("/my_trips");
   };
 
   return (

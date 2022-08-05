@@ -26,7 +26,7 @@ const Header = () => {
         className="logo"
       />
       <div className="button-logout" onClick={logout}>
-        <ImSwitch className="icon" size={35} />
+        <ImSwitch className="icon" size={30} />
         <span>LOGOUT</span>
       </div>
     </HeaderStyled>

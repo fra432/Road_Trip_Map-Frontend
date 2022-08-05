@@ -1,12 +1,22 @@
+import { useNavigate } from "react-router-dom";
+import { useAppDispatch } from "../../redux/store/hooks";
+import { getLocationsThunk } from "../../redux/thunks/locationsThunks";
 import TripStyled from "./TripStyled";
 
 const Trip = ({
-  trip: { name, image },
+  trip: { name, image, id },
 }: {
-  trip: { name: string; image: string };
+  trip: { name: string; image: string; id: string };
 }) => {
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const showTrip = (tripId: string) => {
+    dispatch(getLocationsThunk(tripId));
+    navigate("/map");
+  };
   return (
-    <TripStyled>
+    <TripStyled onClick={() => showTrip(id)}>
       <img src={image ? image : "/images/background4.jpeg"} alt="card cover" />
       <div className="info">
         <h4 className="name">{name}</h4>
