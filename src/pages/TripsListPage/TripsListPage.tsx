@@ -4,6 +4,7 @@ import TripsListPageStyled from "./TripsListPageStyled";
 const TripsListPage = () => {
   return (
     <TripsListPageStyled>
+      <h2 className="title">My Trips</h2>
       <TripsList />
     </TripsListPageStyled>
   );

@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const HomePageStyled = styled.div`
   width: 100%;
-  min-height: 100vh;
   height: 100%;
+  min-height: 30rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,16 +12,6 @@ const HomePageStyled = styled.div`
   background-image: url("/images/background2.jpeg");
   background-size: cover;
 
-  :before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    min-height: 100%;
-    background-color: #5c5a58;
-    opacity: 0.5;
-  }
   .welcome {
     display: flex;
     flex-direction: column;

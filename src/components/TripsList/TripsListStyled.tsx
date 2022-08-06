@@ -1,10 +1,7 @@
 import styled from "styled-components";
 
 const TripsListStyled = styled.ul`
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
-  justify-content: center;
+  width: 100%;
 `;
 
 export default TripsListStyled;
