@@ -13,7 +13,7 @@ const Trip = ({
 
   const showTrip = (tripId: string) => {
     dispatch(getLocationsThunk(tripId));
-    navigate("/map");
+    navigate(`/map/${tripId}`);
   };
   return (
     <TripStyled onClick={() => showTrip(id)}>

@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.css";
+import About from "./components/About/About";
 import AntiController from "./components/AntiController/AntiController";
 import Controller from "./components/Controller/Controller";
 import Header from "./components/Header/Header";
@@ -15,6 +16,7 @@ import MapPage from "./pages/MapPage/MapPage";
 import TripsListPage from "./pages/TripsListPage/TripsListPage";
 import { loginActionCreator } from "./redux/features/userSlice";
 import { useAppDispatch, useAppSelector } from "./redux/store/hooks";
+import { getLocationsThunk } from "./redux/thunks/locationsThunks";
 import { DecodeToken } from "./types/types";
 
 function App() {
@@ -24,6 +26,7 @@ function App() {
   const { openTripForm } = useAppSelector((state) => state.userTrips);
   const { logged } = useAppSelector((state) => state.user);
   const { infoModalOpen } = useAppSelector((state) => state.location);
+  const { tripId } = useAppSelector((state) => state.locations);
   const token = localStorage.getItem("token");
 
   useEffect(() => {
@@ -34,9 +37,8 @@ function App() {
         id,
       };
       dispatch(loginActionCreator(userInfo));
-      /* navigate("/home"); */
     }
-  }, [dispatch, navigate, token, logged]);
+  }, [dispatch, navigate, token, logged, tripId]);
 
   return (
     <>
@@ -60,7 +62,7 @@ function App() {
           }
         />
         <Route
-          path="/map"
+          path="/map/:tripId"
           element={
             <Controller>
               <MapPage />
@@ -76,6 +78,7 @@ function App() {
           }
         />
       </Routes>
+      <About />
       {openLocationForm && <LocationForm />}
       {infoModalOpen && <InfoLocationModal />}
       {openTripForm && <TripForm />}

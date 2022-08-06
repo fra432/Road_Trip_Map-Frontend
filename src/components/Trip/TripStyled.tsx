@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 const TripStyled = styled.li`
   z-index: 200;
-  width: 20rem;
+  width: 15rem;
   height: 20rem;
-  border: 2px solid #264653;
-  border-radius: 10rem;
+  border-radius: 1rem;
+  margin: 2rem 0;
   padding: 1.5rem;
   background: white;
   position: relative;
@@ -13,7 +13,7 @@ const TripStyled = styled.li`
   justify-content: center;
   align-items: center;
   transition: 0.4s ease-out;
-  box-shadow: 0px 7px 10px rgba(black, 0.5);
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
   cursor: pointer;
 
   :hover {
@@ -27,7 +27,7 @@ const TripStyled = styled.li`
       left: 0;
       width: 100%;
       height: 100%;
-      border-radius: 10rem;
+      border-radius: 1rem;
       background-color: black;
       opacity: 0.4;
       transition: 0.5s;
@@ -45,7 +45,7 @@ const TripStyled = styled.li`
     position: absolute;
     top: 0;
     left: 0;
-    border-radius: 10rem;
+    border-radius: 1rem;
   }
 
   .info {

@@ -6,6 +6,7 @@ const MapStyled = styled.div`
   border: 2px solid #fff;
   border-radius: 2rem;
   margin-bottom: 2rem;
+  border: 2px solid #264653;
 
   .leaflet-container {
     height: 30rem;

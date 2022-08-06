@@ -22,9 +22,6 @@ const HomePage = () => {
 
   return (
     <HomePageStyled>
-      <div className="welcome">
-        <span className="welcome__username">Welcome {username}</span>
-      </div>
       <div className="user-options">
         <div className="option">
           <img
