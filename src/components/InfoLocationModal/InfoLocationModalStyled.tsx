@@ -16,7 +16,7 @@ const InfoLocationModalStyled = styled.div`
 
   .location {
     position: relative;
-    width: 90%;
+    width: 80%;
     background-color: #fff;
     border-radius: 2rem;
     display: flex;
@@ -36,15 +36,15 @@ const InfoLocationModalStyled = styled.div`
 
     .carousel {
       padding-top: 2rem;
-      width: 80%;
+      width: 70%;
 
       .carousel-inner {
         border-radius: 2rem;
       }
 
       img {
-        width: 80%;
-        height: 20rem;
+        width: 70%;
+        height: 25rem;
         object-fit: cover;
       }
     }

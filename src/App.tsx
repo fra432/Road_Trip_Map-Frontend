@@ -16,7 +16,6 @@ import MapPage from "./pages/MapPage/MapPage";
 import TripsListPage from "./pages/TripsListPage/TripsListPage";
 import { loginActionCreator } from "./redux/features/userSlice";
 import { useAppDispatch, useAppSelector } from "./redux/store/hooks";
-import { getLocationsThunk } from "./redux/thunks/locationsThunks";
 import { DecodeToken } from "./types/types";
 
 function App() {

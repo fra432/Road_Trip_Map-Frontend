@@ -6,7 +6,6 @@ const AboutStyled = styled.div`
   flex-wrap: wrap;
   align-items: baseline;
   justify-content: center;
-  gap: 1rem;
   background-color: #f3f9f5;
 
   .about-section {
@@ -16,7 +15,7 @@ const AboutStyled = styled.div`
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 2rem 0;
+    padding: 2rem;
 
     &__icon {
       margin-bottom: 1rem;

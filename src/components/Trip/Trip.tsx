@@ -11,8 +11,8 @@ const Trip = ({
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const showTrip = (tripId: string) => {
-    dispatch(getLocationsThunk(tripId));
+  const showTrip = async (tripId: string) => {
+    await dispatch(getLocationsThunk(tripId));
     navigate(`/map/${tripId}`);
   };
   return (

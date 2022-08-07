@@ -1,13 +1,10 @@
 import { useNavigate } from "react-router-dom";
 import { openTripFormActionCreator } from "../../redux/features/userTripsSlice";
-import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
+import { useAppDispatch } from "../../redux/store/hooks";
 import { getUserTripsThunk } from "../../redux/thunks/tripsThunks";
 import HomePageStyled from "./HomePageStyled";
 
 const HomePage = () => {
-  const {
-    userInfo: { username },
-  } = useAppSelector((state) => state.user);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
@@ -22,26 +19,24 @@ const HomePage = () => {
 
   return (
     <HomePageStyled>
-      <div className="user-options">
-        <div className="option">
-          <img
-            src="https://tenor.com/view/what-the-location-map-gps-gif-11157749.gif"
-            alt="path on the map"
-            className="image image--map"
-          />
-          <button className="button button--create" onClick={openTripForm}>
-            Create New Trip
-          </button>
+      <div className="options">
+        <div onClick={openTripForm} className="option option--create">
+          <video
+            src="/video/create-trip.mp4"
+            className="option__video"
+            loop
+            muted
+            autoPlay
+          ></video>
+          <span className="option__title">Create new Trip</span>
         </div>
-        <div className="option">
+        <div onClick={showUserTrips} className="option option--trips">
           <img
             src="https://firebasestorage.googleapis.com/v0/b/trippy-dc13b.appspot.com/o/ezgif.com-gif-maker%20(1).webp?alt=media&token=b91245b1-1e8a-4f37-9ad9-43c3428566d4"
             alt="world spinning gif"
-            className="image image--globe"
+            className="option__image"
           />
-          <button onClick={showUserTrips} className="button button--create">
-            My Trips
-          </button>
+          <span className="option__title">My Trips</span>
         </div>
       </div>
     </HomePageStyled>
