@@ -49,6 +49,7 @@ const TripForm = () => {
     await dispatch(addTripThunk(newFormData));
     clearData();
     closeTripForm();
+    debugger;
     navigate(`/map/${tripId}`);
   };
 

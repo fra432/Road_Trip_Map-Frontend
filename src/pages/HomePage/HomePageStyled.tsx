@@ -11,61 +11,57 @@ const HomePageStyled = styled.div`
 
   .options {
     width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    gap: 2rem;
+
+    @media (max-width: 800px) {
+      flex-direction: column;
+      align-items: center;
+    }
 
     @media (min-width: 800px) {
-      display: flex;
+      flex-direction: flex;
+      justify-content: space-around;
     }
 
     .option {
       cursor: pointer;
+      position: relative;
+      height: 30rem;
+      border: 2px solid #264653;
+      border-radius: 1rem;
+      width: 80%;
+
       @media (min-width: 300px) {
-        width: 100%;
         height: 15rem;
       }
       @media (min-width: 500px) {
-        width: 100%;
         height: 30rem;
       }
       @media (min-width: 800px) {
-        width: 50%;
+        width: 45%;
         height: 20rem;
       }
       @media (min-width: 1000px) {
-        width: 50%;
+        width: 45%;
         height: 25rem;
       }
 
       @media (min-width: 1200px) {
-        width: 50%;
+        width: 45%;
         height: 30rem;
       }
-      position: relative;
-      width: 100%;
-      height: 30rem;
 
       &__video {
         width: 100%;
         height: 100%;
-
-        @media (min-width: 800px) {
-          border-right: 1px solid #264653;
-        }
-
-        border: 2px solid #264653;
-        border-bottom: 2px solid #264653;
       }
 
       &__image {
         width: 100%;
         height: 100%;
-
-        @media (min-width: 800px) {
-          border-left: 1px solid #264653;
-          border-top: 2px solid #264653;
-        }
-
-        border: 2px solid #264653;
-        border-top: 1px solid #264653;
+        border-radius: 1rem;
       }
 
       :hover {
@@ -81,6 +77,7 @@ const HomePageStyled = styled.div`
           background-color: black;
           opacity: 0.4;
           transition: 0.5s;
+          border-radius: 0.9rem;
         }
         .option__title {
           opacity: 1;
