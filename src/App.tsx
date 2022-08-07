@@ -6,6 +6,7 @@ import "./App.css";
 import About from "./components/About/About";
 import AntiController from "./components/AntiController/AntiController";
 import Controller from "./components/Controller/Controller";
+import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import InfoLocationModal from "./components/InfoLocationModal/InfoLocationModal";
 import LocationForm from "./components/LocationForm/LocationForm";
@@ -78,6 +79,7 @@ function App() {
         />
       </Routes>
       <About />
+      <Footer />
       {openLocationForm && <LocationForm />}
       {infoModalOpen && <InfoLocationModal />}
       {openTripForm && <TripForm />}
