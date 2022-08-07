@@ -17,7 +17,7 @@ export const addTripThunk =
         headers: { Authorization: `Bearer ${localStorage.token}` },
       });
 
-      dispatch(getLocationsThunk(id));
+      await dispatch(getLocationsThunk(id));
     } catch (error: any) {
       toast.error("Sorry, we were unable to add a new trip");
       return error.message;

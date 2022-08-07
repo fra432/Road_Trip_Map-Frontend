@@ -1,6 +1,6 @@
 import Form from "react-bootstrap/Form";
 import { closeTripFormActionCreator } from "../../redux/features/userTripsSlice";
-import { useAppDispatch } from "../../redux/store/hooks";
+import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { GiCancel } from "react-icons/gi";
 import { Button } from "react-bootstrap";
 import { useState } from "react";
@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 const TripForm = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const { tripId } = useAppSelector((state) => state.locations);
 
   const blankData: { name: string; image: string } = {
     name: "",
@@ -38,17 +39,17 @@ const TripForm = () => {
     setFormData(blankData);
   };
 
-  const submitTrip = (event: React.FormEvent) => {
+  const submitTrip = async (event: React.FormEvent) => {
     event.preventDefault();
 
     const newFormData = new FormData();
     newFormData.append("name", formData.name);
     newFormData.append("image", formData.image);
 
-    dispatch(addTripThunk(newFormData));
+    await dispatch(addTripThunk(newFormData));
     clearData();
     closeTripForm();
-    navigate("/map");
+    navigate(`/map/${tripId}`);
   };
 
   return (
