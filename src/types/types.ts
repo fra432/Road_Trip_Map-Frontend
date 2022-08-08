@@ -28,6 +28,12 @@ export interface UserLogin {
   password: string;
 }
 
+export interface UserRegister {
+  email: string;
+  username: string;
+  password: string;
+}
+
 export interface ResponseApiLogin {
   status?: number;
   data: {

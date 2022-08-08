@@ -82,6 +82,7 @@ const LoginRegisterFormStyled = styled.div`
       height: 100%;
 
       .form-title {
+        font-family: "Lobster", cursive;
         font-weight: 400;
       }
 
