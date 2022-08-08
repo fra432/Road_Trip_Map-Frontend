@@ -3,7 +3,7 @@ import { closeTripFormActionCreator } from "../../redux/features/userTripsSlice"
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import { GiCancel } from "react-icons/gi";
 import { Button } from "react-bootstrap";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import LocationFormStyled from "../LocationForm/LocationFormStyled";
 import { addTripThunk } from "../../redux/thunks/tripsThunks";
 import { useNavigate } from "react-router-dom";
@@ -39,6 +39,8 @@ const TripForm = () => {
     setFormData(blankData);
   };
 
+  const refTripId = useRef(tripId);
+
   const submitTrip = async (event: React.FormEvent) => {
     event.preventDefault();
 
@@ -49,8 +51,13 @@ const TripForm = () => {
     await dispatch(addTripThunk(newFormData));
     clearData();
     closeTripForm();
-    navigate(`/map/${tripId}`);
   };
+
+  useEffect(() => {
+    if (refTripId.current !== tripId) {
+      navigate(`/map/${tripId}`);
+    }
+  }, [navigate, tripId]);
 
   return (
     <LocationFormStyled>
