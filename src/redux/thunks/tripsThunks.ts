@@ -1,6 +1,9 @@
 import axios from "axios";
 import toast from "react-hot-toast";
-import { loadTripsActionCreator } from "../features/userTripsSlice";
+import {
+  deleteTripActionCreator,
+  loadTripsActionCreator,
+} from "../features/userTripsSlice";
 import { AppDispatch } from "../store/store";
 import { getLocationsThunk } from "./locationsThunks";
 
@@ -38,3 +41,17 @@ export const getUserTripsThunk = () => async (dispatch: AppDispatch) => {
     return error.message;
   }
 };
+
+export const deleteTripThunk =
+  (tripId: string) => async (dispatch: AppDispatch) => {
+    try {
+      await axios.delete(`${url}trips/${tripId}`, {
+        headers: { Authorization: `Bearer ${localStorage.token}` },
+      });
+
+      dispatch(deleteTripActionCreator(tripId));
+    } catch (error: any) {
+      toast.error("Sorry, we were unable to delete this trips");
+      return error.message;
+    }
+  };
