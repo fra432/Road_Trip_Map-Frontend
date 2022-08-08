@@ -26,6 +26,10 @@ const MapPageStyled = styled.div`
       padding-bottom: 0.5rem;
       border-bottom: 1px solid #e4e4e4;
     }
+
+    .icon {
+      cursor: pointer;
+    }
   }
 `;
 

@@ -78,8 +78,8 @@ function App() {
           }
         />
       </Routes>
-      <About />
-      <Footer />
+      {logged && <About />}
+      {logged && <Footer />}
       {openLocationForm && <LocationForm />}
       {infoModalOpen && <InfoLocationModal />}
       {openTripForm && <TripForm />}

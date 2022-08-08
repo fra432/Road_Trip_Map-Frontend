@@ -58,7 +58,14 @@ const Map = () => {
   return (
     <MapStyled>
       <MapContainer
-        center={[41.346176, 2.168365]}
+        center={
+          locations.features.length
+            ? [
+                locations.features[0].geometry.coordinates[0],
+                locations.features[0].geometry.coordinates[1],
+              ]
+            : [41.346176, 2.168365]
+        }
         zoom={12}
         scrollWheelZoom={true}
       >

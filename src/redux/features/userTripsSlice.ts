@@ -14,6 +14,12 @@ const userTripsSlice = createSlice({
       ...userTrips,
       userTrips: [...action.payload],
     }),
+    deleteTrip: (userTrips, action: PayloadAction<string>) => ({
+      ...userTrips,
+      userTrips: userTrips.userTrips.filter(
+        (trip) => trip.id !== action.payload
+      ),
+    }),
     openTripForm: (userTrips) => ({
       ...userTrips,
       openTripForm: true,
@@ -29,6 +35,7 @@ export const {
   loadTrips: loadTripsActionCreator,
   openTripForm: openTripFormActionCreator,
   closeTripForm: closeTripFormActionCreator,
+  deleteTrip: deleteTripActionCreator,
 } = userTripsSlice.actions;
 
 export default userTripsSlice.reducer;

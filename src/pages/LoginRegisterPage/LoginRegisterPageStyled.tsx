@@ -16,7 +16,7 @@ const LoginRegisterPageStyled = styled.div<Props>`
   height: 100%;
   background-image: url(${(props: Props) => props.background});
   background-size: cover;
-  transition-delay: background-image 2s;
+  transition-delay: background-image 3s;
   transition: background-image 2s;
 
   header {
