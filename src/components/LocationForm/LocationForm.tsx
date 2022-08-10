@@ -80,7 +80,7 @@ const LocationForm = () => {
           type="text"
           className="name"
           required={true}
-          maxLength={20}
+          maxLength={30}
           value={formData.name}
           onChange={handleChange}
         />
@@ -90,7 +90,7 @@ const LocationForm = () => {
           id="description"
           cols={20}
           rows={7}
-          maxLength={200}
+          maxLength={350}
           className="form-control"
           value={formData.description}
           onChange={handleChange}

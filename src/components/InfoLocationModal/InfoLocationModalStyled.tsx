@@ -23,7 +23,7 @@ const InfoLocationModalStyled = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2rem 0.5rem;
+    padding: 1.2rem 0.5rem;
     border: 2px solid #264653;
 
     &__description {
@@ -76,6 +76,10 @@ const InfoLocationModalStyled = styled.div`
         position: absolute;
         top: 3%;
         right: 3%;
+      }
+
+      &--cancel {
+        margin-top: 1rem;
       }
     }
   }

@@ -70,7 +70,7 @@ const TripForm = () => {
           type="text"
           className="name"
           required={true}
-          maxLength={20}
+          maxLength={30}
           value={formData.name}
           onChange={handleChange}
         />

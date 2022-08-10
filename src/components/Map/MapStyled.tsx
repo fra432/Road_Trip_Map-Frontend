@@ -22,6 +22,10 @@ const MapStyled = styled.div`
       gap: 1rem;
       width: 100%;
 
+      h2 {
+        text-align: center;
+      }
+
       p {
         text-align: center;
         margin-top: -0.1rem;
