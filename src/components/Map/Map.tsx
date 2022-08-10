@@ -1,4 +1,5 @@
 import { Icon } from "leaflet";
+import * as L from "leaflet";
 import { BsInfoCircleFill } from "react-icons/bs";
 import "leaflet/dist/leaflet.css";
 import "leaflet-geosearch/dist/geosearch.css";
@@ -10,7 +11,9 @@ import {
   Marker,
   Popup,
   TileLayer,
+  useMap,
   useMapEvents,
+  Polyline,
 } from "react-leaflet";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
@@ -21,6 +24,7 @@ import {
   openLocationFormActionCreator,
 } from "../../redux/features/newLocationSlice";
 import { getLocationByIdThunk } from "../../redux/thunks/locationsThunks";
+import { useEffect } from "react";
 
 const StyledPop = styled(Popup)`
   .popup-content {
@@ -46,14 +50,32 @@ const Map = () => {
   };
 
   const marker = new Icon({
-    iconUrl: "/location.png",
-    iconSize: [40, 40],
+    iconSize: [25, 41],
+    iconAnchor: [10, 41],
+    popupAnchor: [2, -60],
+    iconUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-icon.png",
+    shadowUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-shadow.png",
   });
 
   const openInfoLocationModal = (event: any, id: string) => {
     event.stopPropagation();
     dispatch(getLocationByIdThunk(id));
   };
+
+  const coordinatesList = locations.features.map(
+    (location) =>
+      new L.LatLng(
+        location.geometry.coordinates[0],
+        location.geometry.coordinates[1]
+      )
+  );
+
+  const pointsList = coordinatesList.sort(function (a, b) {
+    if (a.lng === b.lng) {
+      return a.lat - b.lat;
+    }
+    return a.lat - b.lat;
+  });
 
   return (
     <MapStyled>
@@ -75,40 +97,43 @@ const Map = () => {
         />
         {locations.features.map((location) => {
           return (
-            <Marker
-              key={location.id}
-              position={[
-                location.geometry.coordinates[0],
-                location.geometry.coordinates[1],
-              ]}
-              icon={marker}
-            >
-              <StyledPop
+            <>
+              <Marker
+                key={location.id}
                 position={[
                   location.geometry.coordinates[0],
                   location.geometry.coordinates[1],
                 ]}
+                icon={marker}
               >
-                <div className="popup-content">
-                  <h2>{location.properties.name}</h2>
-                  {location.properties.images.length !== 0 && (
-                    <img
-                      className="image"
-                      src={location.properties.images[0]}
-                      alt={location.properties.name}
-                    />
-                  )}
-                </div>
+                <StyledPop
+                  position={[
+                    location.geometry.coordinates[0],
+                    location.geometry.coordinates[1],
+                  ]}
+                >
+                  <div className="popup-content">
+                    <h2>{location.properties.name}</h2>
+                    {location.properties.images.length !== 0 && (
+                      <img
+                        className="image"
+                        src={location.properties.images[0]}
+                        alt={location.properties.name}
+                      />
+                    )}
+                  </div>
 
-                <BsInfoCircleFill
-                  size={35}
-                  className="icon icon--info"
-                  onClick={(event) => {
-                    openInfoLocationModal(event, location.id);
-                  }}
-                />
-              </StyledPop>
-            </Marker>
+                  <BsInfoCircleFill
+                    size={35}
+                    className="icon icon--info"
+                    onClick={(event) => {
+                      openInfoLocationModal(event, location.id);
+                    }}
+                  />
+                </StyledPop>
+              </Marker>
+              <Polyline positions={pointsList} color="blue" />
+            </>
           );
         })}
         <SearchControl />

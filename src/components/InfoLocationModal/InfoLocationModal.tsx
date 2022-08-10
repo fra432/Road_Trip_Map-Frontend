@@ -50,11 +50,14 @@ const InfoLocationModal = () => {
           className="icon icon--close"
           onClick={closeInfoLocationModal}
         />
-        <GiCancel
-          size={35}
-          className="icon icon--cancel"
-          onClick={handleShow}
-        />
+        <div className="user-option">
+          <GiCancel
+            size={35}
+            className="icon icon--cancel"
+            onClick={handleShow}
+          />
+          <span className="user-option__title">Delete</span>
+        </div>
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>Are you sure you want to delete this location?</Modal.Body>

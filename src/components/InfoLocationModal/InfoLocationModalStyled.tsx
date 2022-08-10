@@ -49,6 +49,20 @@ const InfoLocationModalStyled = styled.div`
       }
     }
 
+    .user-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 4rem;
+      text-align: center;
+      color: #264653;
+      cursor: pointer;
+
+      &__title {
+        font-weight: 500;
+      }
+    }
+
     .line {
       width: 80%;
       height: 1px;
@@ -62,10 +76,6 @@ const InfoLocationModalStyled = styled.div`
         position: absolute;
         top: 3%;
         right: 3%;
-      }
-
-      &--cancel {
-        margin-top: 1rem;
       }
     }
   }
