@@ -82,3 +82,7 @@ export interface UserTrips {
   userTrips: ITrip[];
   openTripForm: boolean;
 }
+
+export interface UI {
+  loading: boolean;
+}
