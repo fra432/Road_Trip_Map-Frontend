@@ -27,16 +27,21 @@ const HeaderStyled = styled.div`
 
   .button-logout {
     width: 20%;
-    z-index: 100;
-    cursor: pointer;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: flex-end;
     color: #fff;
+    cursor: pointer;
+    margin-right: 0.3rem;
 
-    span {
-      font-size: 0.8rem;
-      font-weight: 500;
+    &__container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      span {
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
     }
   }
 `;

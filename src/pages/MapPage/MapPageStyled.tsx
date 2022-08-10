@@ -27,6 +27,27 @@ const MapPageStyled = styled.div`
       border-bottom: 1px solid #e4e4e4;
     }
 
+    .user-options {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 2rem;
+
+      .user-option {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 4rem;
+        text-align: center;
+        color: #264653;
+        cursor: pointer;
+
+        &__title {
+          font-weight: 500;
+        }
+      }
+    }
+
     .icon {
       cursor: pointer;
     }

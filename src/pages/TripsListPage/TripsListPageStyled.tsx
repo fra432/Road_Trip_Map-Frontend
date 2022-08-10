@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 const TripsListPageStyled = styled.div`
-  width: 100%;
+  width: 90%;
   padding: 2rem 0;
   border-bottom: 1px solid #dadada;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  margin: 0 auto;
   gap: 2rem;
 
   .title {
