@@ -1,7 +1,10 @@
 import AboutStyled from "./AboutStyled";
 import { HiLocationMarker } from "react-icons/hi";
+import { useLocation } from "react-router-dom";
 
 const About = () => {
+  const { pathname } = useLocation();
+
   return (
     <AboutStyled>
       <div className="about-head">
@@ -33,20 +36,22 @@ const About = () => {
           </p>
         </div>
       </div>
-      <div className="about-main">
-        <div className="about-main__description">
-          <h2 className="about-main__description__title">
-            Discover Inspiring Routes
-          </h2>
-          <p className="about-main__description__description">
-            Explore the best selection of road trips from other users. Get
-            inspired and start creating your own planning.
-          </p>
+      {pathname === "/home" && (
+        <div className="about-main">
+          <div className="about-main__description">
+            <h2 className="about-main__description__title">
+              Discover Inspiring Routes
+            </h2>
+            <p className="about-main__description__description">
+              Explore the best selection of road trips from other users. Get
+              inspired and start creating your own planning.
+            </p>
+          </div>
+          <div className="about-main__image">
+            <img src="/images/trippy-discover.jpeg" alt="trips cards" />
+          </div>
         </div>
-        <div className="about-main__image">
-          <img src="/images/trippy-discover.jpeg" alt="trips cards" />
-        </div>
-      </div>
+      )}
     </AboutStyled>
   );
 };

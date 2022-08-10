@@ -32,8 +32,10 @@ const Header = () => {
       </div>
       <h2 className="username">Welcome {username}</h2>
       <div className="button-logout" onClick={logout}>
-        <ImSwitch className="icon" size={30} />
-        <span>LOGOUT</span>
+        <div className="button-logout__container">
+          <ImSwitch className="icon" size={30} />
+          <span>LOGOUT</span>
+        </div>
       </div>
     </HeaderStyled>
   );

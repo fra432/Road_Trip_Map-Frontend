@@ -7,6 +7,8 @@ import MapPageStyled from "./MapPageStyled";
 import { GiCancel } from "react-icons/gi";
 import { deleteTripThunk } from "../../redux/thunks/tripsThunks";
 import { Button, Modal } from "react-bootstrap";
+import { FaMapMarkedAlt } from "react-icons/fa";
+import { AiFillHome } from "react-icons/ai";
 
 const MapPage = (): JSX.Element => {
   const { name } = useAppSelector((state) => state.locations);
@@ -29,16 +31,45 @@ const MapPage = (): JSX.Element => {
     navigate("/my_trips");
   };
 
+  const navigateToMyTrips = () => {
+    navigate("/my_trips");
+  };
+
+  const navigateToHome = () => {
+    navigate("/home");
+  };
+
   return (
     <MapPageStyled>
       <div className="page-content">
         <h1 className="trip-name">{name}</h1>
         <Map />
-        <GiCancel
-          size={35}
-          className="icon icon--cancel"
-          onClick={handleShow}
-        />
+        <div className="user-options">
+          <div className="user-option">
+            <FaMapMarkedAlt
+              size={35}
+              className="user-option__icon"
+              onClick={navigateToMyTrips}
+            />
+            <span className="user-option__title">My Trips</span>
+          </div>
+          <div className="user-option">
+            <GiCancel
+              size={35}
+              className="user-option__icon"
+              onClick={handleShow}
+            />
+            <span className="user-option__title">Delete</span>
+          </div>
+          <div className="user-option">
+            <AiFillHome
+              size={35}
+              className="user-option__icon"
+              onClick={navigateToHome}
+            />
+            <span className="user-option__title">Home</span>
+          </div>
+        </div>
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>Are you sure you want to delete this trip?</Modal.Body>
