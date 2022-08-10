@@ -15,7 +15,7 @@ const About = () => {
           </h4>
           <p className="about-head__section__description">
             Easily plan your trip itinerary on an interactive map. Choose a spot
-            on the map and add a location to your trip
+            on the map and add a location to your trip.
           </p>
         </div>
         <div className="about-head__section">
@@ -32,7 +32,7 @@ const About = () => {
           </h4>
           <p className="about-head__section__description">
             Add photos and descriptions to your favorite locations and always
-            bring with you the best memories of your trip
+            bring with you the best memories of your trip.
           </p>
         </div>
       </div>
