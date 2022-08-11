@@ -32,7 +32,7 @@ const LoginRegisterPage = (): JSX.Element => {
           Helping travellers plan the most epic road trip.
         </h1>
       </header>
-      <LoginRegisterForm />;
+      <LoginRegisterForm />
       <span className="description">
         Turn your road trip into an adventure. Build your route in Trippy and
         then use our turn-by-turn navigation to lead the way. Plan your road
