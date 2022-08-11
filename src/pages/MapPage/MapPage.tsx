@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Map from "../../components/Map/Map";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
@@ -11,6 +11,10 @@ import { FaMapMarkedAlt } from "react-icons/fa";
 import { AiFillHome } from "react-icons/ai";
 
 const MapPage = (): JSX.Element => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const { name } = useAppSelector((state) => state.locations);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();

@@ -44,13 +44,13 @@ const HomePageStyled = styled.div`
         height: 20rem;
       }
       @media (min-width: 1000px) {
-        width: 45%;
+        width: 40%;
         height: 25rem;
       }
 
       @media (min-width: 1200px) {
-        width: 45%;
-        height: 30rem;
+        width: 35%;
+        height: 25rem;
       }
 
       &__video {

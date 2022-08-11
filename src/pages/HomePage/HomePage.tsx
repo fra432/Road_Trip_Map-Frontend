@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { openTripFormActionCreator } from "../../redux/features/userTripsSlice";
 import { useAppDispatch } from "../../redux/store/hooks";
@@ -5,6 +6,10 @@ import { getUserTripsThunk } from "../../redux/thunks/tripsThunks";
 import HomePageStyled from "./HomePageStyled";
 
 const HomePage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 

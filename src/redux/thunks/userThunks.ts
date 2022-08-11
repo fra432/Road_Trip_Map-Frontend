@@ -7,6 +7,10 @@ import {
   UserLogin,
   UserRegister,
 } from "../../types/types";
+import {
+  setLoadingOffActionCreator,
+  setLoadingOnActionCreator,
+} from "../features/uiSlice";
 import { loginActionCreator } from "../features/userSlice";
 import { AppDispatch } from "../store/store";
 
@@ -15,6 +19,7 @@ export const loginThunk =
     const url = process.env.REACT_APP_API_URL;
 
     try {
+      dispatch(setLoadingOnActionCreator());
       const {
         status,
         data: { token },
@@ -27,6 +32,8 @@ export const loginThunk =
           username,
           id,
         };
+
+        dispatch(setLoadingOffActionCreator());
 
         dispatch(loginActionCreator(userInfo));
         localStorage.setItem("token", token);
@@ -44,6 +51,8 @@ export const registerThunk =
     const url = process.env.REACT_APP_API_URL;
 
     try {
+      dispatch(setLoadingOnActionCreator());
+
       const { status }: ResponseApiLogin = await axios.post(
         `${url}user/register`,
         userData
@@ -53,6 +62,8 @@ export const registerThunk =
         const { email, password } = userData;
 
         dispatch(loginThunk({ email, password }));
+        dispatch(setLoadingOffActionCreator());
+
         return status;
       }
     } catch (error: any) {
