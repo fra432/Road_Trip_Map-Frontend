@@ -40,6 +40,7 @@ const AboutStyled = styled.div`
     width: 100%;
     height: 30rem;
     display: flex;
+    margin: 1rem 0;
 
     @media (max-width: 600px) {
       flex-direction: column;

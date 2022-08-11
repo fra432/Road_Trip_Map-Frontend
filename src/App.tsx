@@ -9,6 +9,7 @@ import Controller from "./components/Controller/Controller";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import InfoLocationModal from "./components/InfoLocationModal/InfoLocationModal";
+import Loader from "./components/Loader/Loader";
 import LocationForm from "./components/LocationForm/LocationForm";
 import TripForm from "./components/TripForm/TripForm";
 import HomePage from "./pages/HomePage/HomePage";
@@ -25,6 +26,7 @@ function App() {
   const { openLocationForm } = useAppSelector((state) => state.newLocation);
   const { openTripForm } = useAppSelector((state) => state.userTrips);
   const { logged } = useAppSelector((state) => state.user);
+  const { loading } = useAppSelector((state) => state.ui);
   const { infoModalOpen } = useAppSelector((state) => state.location);
   const { tripId } = useAppSelector((state) => state.locations);
   const token = localStorage.getItem("token");
@@ -83,6 +85,7 @@ function App() {
       {openLocationForm && <LocationForm />}
       {infoModalOpen && <InfoLocationModal />}
       {openTripForm && <TripForm />}
+      {loading && <Loader />}
       <Toaster position="bottom-center" reverseOrder={false} />
     </>
   );

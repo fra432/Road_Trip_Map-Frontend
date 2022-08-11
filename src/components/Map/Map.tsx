@@ -11,7 +11,6 @@ import {
   Marker,
   Popup,
   TileLayer,
-  useMap,
   useMapEvents,
   Polyline,
 } from "react-leaflet";
@@ -24,7 +23,6 @@ import {
   openLocationFormActionCreator,
 } from "../../redux/features/newLocationSlice";
 import { getLocationByIdThunk } from "../../redux/thunks/locationsThunks";
-import { useEffect } from "react";
 
 const StyledPop = styled(Popup)`
   .popup-content {

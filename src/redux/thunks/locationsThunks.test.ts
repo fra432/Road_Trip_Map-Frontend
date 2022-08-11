@@ -67,8 +67,8 @@ describe("Given a addLocationsThunk function", () => {
     images: [],
   };
   describe("When invoked", () => {
-    test("Then it should call the dispatch 2 times", async () => {
-      const numberOfDispatchCalls = 2;
+    test("Then it should call the dispatch 4 times", async () => {
+      const numberOfDispatchCalls = 4;
       const tripId = "1";
 
       axios.post = jest.fn().mockResolvedValue({
