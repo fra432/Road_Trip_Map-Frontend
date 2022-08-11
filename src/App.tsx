@@ -2,7 +2,6 @@ import jwtDecode from "jwt-decode";
 import { useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
-import "./App.css";
 import About from "./components/About/About";
 import AntiController from "./components/AntiController/AntiController";
 import Controller from "./components/Controller/Controller";
