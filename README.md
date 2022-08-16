@@ -1,46 +1,40 @@
-# Getting Started with Create React App
+<h1 align="center">Trippy</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br/>
 
-## Available Scripts
+https://user-images.githubusercontent.com/97986262/184867714-02719a6e-aedf-4c50-9741-b56a9e90556f.mp4
 
-In the project directory, you can run:
+<br/>
 
-### `npm start`
+## About
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Trippy is a little web application that allows you to create your own personal road trips by selecting different locations from the map.<br/><br/>
+After logging in or signin up, you will be redirected to the home page where you will be able to either create a new trip or to look up at the trips you already created.
+When creating a new trip, a little form will show up asking for the name of the trip and an image (if no image is uploaded a default image will be assigned to your trip).<br/><br/>
+At this point you can start adding locations to your trip. Every time you want to add a new location, a form will show up allowing you to enter a name, a description, and to upload different images of the location.<br/>
+After a location is created a marker will show up on the map, and by clicking on it a little popup will appear with the name and the image of the location. By clicking on the info icon, the info section will show up with the description of the location and a carousel with all the images uploaded.<br/><br/>
+In the "My Trips" section you will have a preview with all the trips you previously created. By clicking on each one of the trip cards you will be redirected to the map showing you all the markers connected by a line showing you the itinerary.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<br/>
 
-### `npm test`
+## 🚀 Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React](https://reactjs.org/)
+- [React Hooks](https://reactjs.org/docs/hooks-intro.html)
+- [React Router](https://reactrouter.com/web/guides/quick-start)
+- [Redux](https://redux.js.org/)
+- [Redux Thunk](https://github.com/reduxjs/redux-thunk)
+- [Styled Components](https://styled-components.com/)
+- [Firebase](https://firebase.google.com/)
+- [Netlify](https://www.netlify.com)
+- [ExpressJS](https://expressjs.com)
+- [NodeJS](https://nodejs.org/)
+- [MongoDB](https://www.mongodb.com)
+- [JWT](https://jwt.io)
+- [Jest](https://jestjs.io)
 
-### `npm run build`
+## Links
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🗺️ [Trippy](https://trippy-2022.netlify.app/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## ⌨️ [Back deploy Render](https://trippy-bcn.herokuapp.com/)
