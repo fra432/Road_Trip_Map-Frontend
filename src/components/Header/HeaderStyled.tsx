@@ -23,6 +23,10 @@ const HeaderStyled = styled.div`
     color: #fff;
     font-size: 2rem;
     margin: 0;
+
+    @media (max-width: 735px) {
+      display: none;
+    }
   }
 
   .button-logout {
