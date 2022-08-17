@@ -37,4 +37,4 @@ In the "My Trips" section you will have a preview with all the trips you previou
 
 ## 🗺️ [Trippy](https://trippy-2022.netlify.app/)
 
-## ⌨️ [Back deploy Render](https://trippy-bcn.herokuapp.com/)
+## ⌨️ [Back deploy Heroku](https://trippy-bcn.herokuapp.com/)
