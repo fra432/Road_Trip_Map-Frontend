@@ -1,10 +1,6 @@
 import styled from "styled-components";
 
-interface Props {
-  background: string;
-}
-
-const LoginRegisterPageStyled = styled.div<Props>`
+const LoginRegisterPageStyled = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
   position: relative;
@@ -14,10 +10,28 @@ const LoginRegisterPageStyled = styled.div<Props>`
   width: 100%;
   min-height: 100vh;
   height: 100%;
-  background-image: url(${(props: Props) => props.background});
   background-size: cover;
-  transition-delay: background-image 3s;
-  transition: background-image 2s;
+  animation: changeBg 70s infinite linear 50ms;
+  animation-timing-function: cubic-bezier(0, 0, 0.2, 4);
+
+  @keyframes changeBg {
+    0%,
+    100% {
+      background-image: url("/images/background1.jpeg");
+    }
+    20% {
+      background-image: url("/images/background2.jpeg");
+    }
+    40% {
+      background-image: url("/images/background3.jpeg");
+    }
+    60% {
+      background-image: url("/images/background4.jpeg");
+    }
+    80% {
+      background-image: url("/images/background5.jpeg");
+    }
+  }
 
   header {
     align-self: flex-start;
