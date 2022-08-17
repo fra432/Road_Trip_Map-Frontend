@@ -33,6 +33,7 @@
     "react-redux": "^8.0.2",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-test-renderer": "^18.2.0",
     "redux": "^4.2.0",
     "styled-components": "^4.0.0",
     "typescript": "^4.7.4",
@@ -69,6 +70,7 @@
     "@types/leaflet": "^1.7.11",
     "@types/react-leaflet": "^2.8.2",
     "@types/react-slick": "^0.23.10",
+    "@types/react-test-renderer": "^18.0.0",
     "husky": "^7.0.0"
   },
   "jest": {
@@ -78,7 +80,8 @@
       "!src/react-app-env.d.ts",
       "!src/types/types.ts",
       "!src/App.tsx",
-      "!src/components/UserLocationMarker/UserLocationMarker.tsx"
+      "!src/components/UserLocationMarker/UserLocationMarker.tsx",
+      "!src/components/Footer/__snapshots__/*"
     ]
   }
 }

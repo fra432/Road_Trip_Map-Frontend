@@ -31,9 +31,14 @@ const Header = () => {
         />
       </div>
       <h2 className="username">Welcome {username}</h2>
-      <div className="button-logout" onClick={logout}>
+      <div className="button-logout">
         <div className="button-logout__container">
-          <ImSwitch className="icon" size={30} />
+          <ImSwitch
+            data-testid="icon-logout"
+            className="icon"
+            size={30}
+            onClick={logout}
+          />
           <span>LOGOUT</span>
         </div>
       </div>
