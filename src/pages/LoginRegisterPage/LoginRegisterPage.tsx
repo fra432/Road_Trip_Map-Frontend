@@ -1,9 +1,31 @@
+import { useEffect, useState } from "react";
 import LoginRegisterForm from "../../components/LoginRegisterForm/LoginRegisterForm";
 import LoginRegisterPageStyled from "./LoginRegisterPageStyled";
 
 const LoginRegisterPage = (): JSX.Element => {
+  const [coverImage, setCoverImage] = useState("/images/background1.jpeg");
+
+  useEffect(() => {
+    const images = [
+      "background1.jpeg",
+      "background2.jpeg",
+      "background3.jpeg",
+      "background4.jpeg",
+      "background5.jpeg",
+      "background6.jpeg",
+    ];
+
+    const intervalId = setInterval(() => {
+      setCoverImage(
+        `/images/${images[Math.floor(Math.random() * images.length)]}`
+      );
+    }, 8000);
+
+    return () => clearInterval(intervalId);
+  });
+
   return (
-    <LoginRegisterPageStyled>
+    <LoginRegisterPageStyled background={coverImage}>
       <header>
         <img src="trippy_logo.webp" alt="trippy logo" className="logo" />
         <h1 className="title">
