@@ -46,12 +46,14 @@ const InfoLocationModal = () => {
           </CCarousel>
         )}
         <BsX
+          data-testid="icon-close"
           size={25}
           className="icon icon--close"
           onClick={closeInfoLocationModal}
         />
         <div className="user-option">
           <GiCancel
+            data-testid="icon-delete"
             size={35}
             className="icon icon--cancel"
             onClick={handleShow}
