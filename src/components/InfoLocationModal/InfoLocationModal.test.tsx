@@ -11,7 +11,7 @@ jest.mock("../../redux/store/hooks", () => ({
   useAppDispatch: () => mockDispatch,
 }));
 
-beforeEach(async () => {
+beforeEach(() => {
   const loadLocationAction = {
     type: "location/loadLocation",
     payload: {
