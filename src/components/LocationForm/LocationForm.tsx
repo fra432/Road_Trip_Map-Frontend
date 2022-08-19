@@ -95,7 +95,7 @@ const LocationForm = () => {
           value={formData.description}
           onChange={handleChange}
         />
-        <Form.Label htmlFor="images">Add images</Form.Label>
+        <Form.Label htmlFor="images">Add Images</Form.Label>
         <Form.Control
           id="images"
           accept="image/*"
@@ -105,6 +105,7 @@ const LocationForm = () => {
         />
         <div className="buttons">
           <GiCancel
+            data-testid="icon-cancel"
             size={35}
             className="icon icon--close"
             onClick={closeLocationForm}
