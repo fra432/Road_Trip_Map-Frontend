@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const LoaderStyled = styled.div`
   position: fixed;
-  z-index: 10;
+  z-index: 101;
   top: 0;
   left: 0;
   bottom: 0;

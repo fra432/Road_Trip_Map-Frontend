@@ -54,7 +54,9 @@ export const addLocationThunk =
 export const deleteLocationThunk =
   (locationId: string) => async (dispatch: AppDispatch) => {
     try {
-      dispatch(setLoadingOnActionCreator());
+      const timer = setTimeout(() => {
+        dispatch(setLoadingOnActionCreator());
+      }, 1000);
 
       const { status } = await axios.delete(`${url}locations/${locationId}`, {
         headers: { Authorization: `Bearer ${localStorage.token}` },
@@ -63,6 +65,7 @@ export const deleteLocationThunk =
       if (status === 200) {
         await dispatch(deleteLocationActionCreator(locationId));
         dispatch(setLoadingOffActionCreator());
+        clearInterval(timer);
       }
     } catch (error: any) {
       toast.error("Sorry, we were unable to delete this location");
@@ -73,7 +76,9 @@ export const deleteLocationThunk =
 export const getLocationByIdThunk =
   (locationId: string) => async (dispatch: AppDispatch) => {
     try {
-      dispatch(setLoadingOnActionCreator());
+      const timer = setTimeout(() => {
+        dispatch(setLoadingOnActionCreator());
+      }, 1000);
 
       const {
         data: { location: locationInfo },
@@ -83,6 +88,7 @@ export const getLocationByIdThunk =
 
       dispatch(loadLocationActionCreator(locationInfo));
       dispatch(setLoadingOffActionCreator());
+      clearTimeout(timer);
     } catch (error: any) {
       toast.error("Unable to load location info");
       return error.message;
