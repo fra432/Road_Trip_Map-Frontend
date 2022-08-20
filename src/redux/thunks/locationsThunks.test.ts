@@ -1,5 +1,5 @@
-import { mockToast } from "../../mocks/methodMocks";
 import axios from "axios";
+import { mockToast } from "../../mocks/functionsMocks";
 import { mockLocations } from "../../mocks/locationsMocks";
 import {
   addLocationThunk,

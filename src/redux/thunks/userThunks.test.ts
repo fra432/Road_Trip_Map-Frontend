@@ -1,5 +1,5 @@
 import axios from "axios";
-import { mockToast } from "../../mocks/methodMocks";
+import { mockToast } from "../../mocks/functionsMocks";
 import { loginThunk } from "./userThunks";
 
 jest.mock("jwt-decode", () => () => ({
