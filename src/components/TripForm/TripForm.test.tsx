@@ -2,7 +2,6 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
-import { act } from "react-test-renderer";
 import { mockDispatch, mockNavigate } from "../../mocks/functionsMocks";
 import store from "../../redux/store/store";
 import TripForm from "./TripForm";
