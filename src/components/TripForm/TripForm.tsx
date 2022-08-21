@@ -74,7 +74,7 @@ const TripForm = () => {
           value={formData.name}
           onChange={handleChange}
         />
-        <Form.Label htmlFor="image">Add image</Form.Label>
+        <Form.Label htmlFor="image">Add Image</Form.Label>
         <Form.Control
           id="image"
           accept="image/*"
@@ -83,6 +83,7 @@ const TripForm = () => {
         />
         <div className="buttons">
           <GiCancel
+            data-testid="icon-close"
             size={35}
             className="icon icon--close"
             onClick={closeTripForm}
