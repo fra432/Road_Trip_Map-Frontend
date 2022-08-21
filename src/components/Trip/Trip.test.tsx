@@ -10,6 +10,7 @@ jest.mock("../../redux/store/hooks", () => ({
   ...jest.requireActual("../../redux/store/hooks"),
   useAppDispatch: () => mockDispatch,
 }));
+
 jest.mock("react-router-dom", () => ({
   ...jest.requireActual("react-router-dom"),
   useNavigate: () => mockNavigate,
@@ -40,7 +41,7 @@ describe("Given a Trip function", () => {
   });
 
   describe("When invoked and the user click on it", () => {
-    test("Then it should a dispatch and a navigate function", () => {
+    test("Then it should a dispatch and a navigate function", async () => {
       const trip = {
         name: "Barcelona",
         image: "Barcelona.jpeg",
@@ -59,8 +60,8 @@ describe("Given a Trip function", () => {
 
       userEvent.click(tripCard);
 
-      expect(mockDispatch).toHaveBeenCalled();
-      expect(mockNavigate).toHaveBeenCalled();
+      await expect(mockDispatch).toHaveBeenCalled();
+      await expect(mockNavigate).toHaveBeenCalled();
     });
   });
 });

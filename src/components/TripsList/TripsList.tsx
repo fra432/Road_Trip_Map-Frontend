@@ -37,7 +37,7 @@ const TripsList = () => {
       loop: true,
     },
     {
-      breakpoint: 850,
+      breakpoint: 950,
       cols: 2,
       rows: 1,
       gap: 3,
@@ -52,7 +52,7 @@ const TripsList = () => {
       loop: true,
     },
     {
-      breakpoint: 1100,
+      breakpoint: 1200,
       cols: 3,
       rows: 1,
       gap: 2,

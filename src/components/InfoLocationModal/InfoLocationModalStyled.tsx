@@ -15,6 +15,7 @@ const InfoLocationModalStyled = styled.div`
   gap: 1rem;
 
   .location {
+    margin: 1rem;
     position: relative;
     width: 80%;
     background-color: #fff;
@@ -81,6 +82,12 @@ const InfoLocationModalStyled = styled.div`
       &--cancel {
         margin-top: 1rem;
       }
+    }
+  }
+
+  @media (max-width: 400px) {
+    .location {
+      width: 99%;
     }
   }
 `;
