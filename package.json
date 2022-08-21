@@ -74,6 +74,9 @@
     "husky": "^7.0.0"
   },
   "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!@ngrx|(?!deck.gl)|ng-dynamic)"
+    ],
     "collectCoverageFrom": [
       "!src/index.tsx",
       "!src/reportWebVitals.ts",
@@ -81,7 +84,10 @@
       "!src/types/types.ts",
       "!src/App.tsx",
       "!src/components/UserLocationMarker/UserLocationMarker.tsx",
-      "!src/components/Footer/__snapshots__/*"
+      "!src/components/Footer/__snapshots__/*",
+      "!src/components/Map/*",
+      "!src/components/MapMarker/*",
+      "!src/components/SearchControl/*"
     ]
   }
 }

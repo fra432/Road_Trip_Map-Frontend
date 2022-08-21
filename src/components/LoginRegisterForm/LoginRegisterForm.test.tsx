@@ -70,7 +70,6 @@ describe("Given a LoginRegisterForm component", () => {
 
   describe("When invoked and the user clicks on the Register field and then on the Login field", () => {
     test("Then it should render the form title text 'Login Here'", () => {
-      const expectedButtonText = "Register";
       const expectedFormTitle = "Login Here";
 
       render(

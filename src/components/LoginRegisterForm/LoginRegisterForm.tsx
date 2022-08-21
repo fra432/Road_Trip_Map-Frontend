@@ -28,7 +28,6 @@ const LoginRegisterForm = (): JSX.Element => {
   };
 
   const sumbitData = (event: React.FormEvent) => {
-    debugger;
     event.preventDefault();
     toast.dismiss();
     if (!formData.email.includes("@")) {
