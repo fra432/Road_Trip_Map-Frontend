@@ -11,18 +11,15 @@ import {
   Marker,
   Popup,
   TileLayer,
-  useMapEvents,
   Polyline,
 } from "react-leaflet";
 import styled from "styled-components";
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import MapStyled from "./MapStyled";
 import SearchControl from "../SearchControl/SearchControl";
-import {
-  addCoordinatesActionCreator,
-  openLocationFormActionCreator,
-} from "../../redux/features/newLocationSlice";
+
 import { getLocationByIdThunk } from "../../redux/thunks/locationsThunks";
+import MapMarker from "../MapMarker/MapMarker";
 
 const StyledPop = styled(Popup)`
   .popup-content {
@@ -36,17 +33,6 @@ const Map = () => {
   const locations = useAppSelector((state) => state.locations);
   const dispatch = useAppDispatch();
 
-  const NewMarker = () => {
-    useMapEvents({
-      click: (event) => {
-        const { lat, lng } = event.latlng;
-        dispatch(addCoordinatesActionCreator([lat, lng]));
-        dispatch(openLocationFormActionCreator());
-      },
-    });
-    return null;
-  };
-
   const marker = new Icon({
     iconSize: [25, 41],
     iconAnchor: [10, 41],
@@ -54,11 +40,6 @@ const Map = () => {
     iconUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-icon.png",
     shadowUrl: "https://unpkg.com/leaflet@1.6/dist/images/marker-shadow.png",
   });
-
-  const openInfoLocationModal = (event: any, id: string) => {
-    event.stopPropagation();
-    dispatch(getLocationByIdThunk(id));
-  };
 
   const coordinatesList = locations.features.map(
     (location) =>
@@ -74,6 +55,11 @@ const Map = () => {
     }
     return a.lat - b.lat;
   });
+
+  const openInfoLocationModal = (event: any, id: string) => {
+    event.stopPropagation();
+    dispatch(getLocationByIdThunk(id));
+  };
 
   return (
     <MapStyled>
@@ -135,7 +121,7 @@ const Map = () => {
           );
         })}
         <SearchControl />
-        <NewMarker />
+        <MapMarker />
       </MapContainer>
     </MapStyled>
   );
