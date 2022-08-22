@@ -41,6 +41,7 @@ export const loginThunk =
         return status;
       }
     } catch (error: any) {
+      dispatch(setLoadingOffActionCreator());
       toast.error("Wrong username or password");
       return error.message;
     }
@@ -67,6 +68,7 @@ export const registerThunk =
         return status;
       }
     } catch (error: any) {
+      dispatch(setLoadingOffActionCreator());
       toast.error("Sorry, something went wrong");
       return error.message;
     }

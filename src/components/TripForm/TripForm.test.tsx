@@ -53,7 +53,7 @@ describe("Given a Trip Form function", () => {
       const loadNewTripAction = {
         type: "locations/loadLocations",
         payload: {
-          name: "asds",
+          name: "Barcelona",
           tripId: "63025452e46546c114c9a01a",
           features: [],
         },
