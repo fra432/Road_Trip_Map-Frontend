@@ -57,12 +57,14 @@ export const deleteTripThunk =
     try {
       dispatch(setLoadingOnActionCreator());
 
-      await axios.delete(`${url}trips/${tripId}`, {
+      const { status } = await axios.delete(`${url}trips/${tripId}`, {
         headers: { Authorization: `Bearer ${localStorage.token}` },
       });
 
-      dispatch(deleteTripActionCreator(tripId));
-      dispatch(setLoadingOffActionCreator());
+      if (status === 200) {
+        dispatch(deleteTripActionCreator(tripId));
+        dispatch(setLoadingOffActionCreator());
+      }
     } catch (error: any) {
       toast.error("Sorry, we were unable to delete this trips");
       return error.message;

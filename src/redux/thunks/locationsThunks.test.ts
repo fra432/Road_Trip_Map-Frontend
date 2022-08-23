@@ -12,7 +12,6 @@ import {
   deleteLocationActionCreator,
 } from "../features/locationsSlice";
 import { loadLocationActionCreator } from "../features/locationSlice";
-import { setLoadingOnActionCreator } from "../features/uiSlice";
 
 jest.mock("react-hot-toast", () => ({
   error: mockToast,
