@@ -51,6 +51,7 @@ const MapPage = (): JSX.Element => {
         <div className="user-options">
           <div className="user-option">
             <FaMapMarkedAlt
+              data-testid="map-icon"
               size={35}
               className="user-option__icon"
               onClick={navigateToMyTrips}
@@ -59,6 +60,7 @@ const MapPage = (): JSX.Element => {
           </div>
           <div className="user-option">
             <GiCancel
+              data-testid="delete-icon"
               size={35}
               className="user-option__icon"
               onClick={handleShow}
@@ -67,6 +69,7 @@ const MapPage = (): JSX.Element => {
           </div>
           <div className="user-option">
             <AiFillHome
+              data-testid="home-icon"
               size={35}
               className="user-option__icon"
               onClick={navigateToHome}

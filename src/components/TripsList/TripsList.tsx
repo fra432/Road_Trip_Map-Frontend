@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../redux/store/hooks";
 import Trip from "../Trip/Trip";
-import { useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { getUserTripsThunk } from "../../redux/thunks/tripsThunks";
 import TripsListStyled from "./TripsListStyled";
 import Carousel from "better-react-carousel";
@@ -9,7 +9,7 @@ const TripsList = () => {
   const { userTrips } = useAppSelector((state) => state.userTrips);
   const dispatch = useAppDispatch();
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     dispatch(getUserTripsThunk());
   }, [dispatch]);
 
@@ -70,10 +70,10 @@ const TripsList = () => {
   return (
     <TripsListStyled>
       <Carousel responsiveLayout={responsive} loop>
-        {userTrips.map((trip, position) => {
+        {userTrips.map((trip, key) => {
           return (
-            <Carousel.Item>
-              <Trip key={trip.id as string} trip={trip} />
+            <Carousel.Item key={key}>
+              <Trip trip={trip} />
             </Carousel.Item>
           );
         })}
