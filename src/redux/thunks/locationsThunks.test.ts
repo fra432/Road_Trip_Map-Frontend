@@ -1,15 +1,18 @@
 import axios from "axios";
 import { mockToast } from "../../mocks/functionsMocks";
-import { mockLocations } from "../../mocks/locationsMocks";
+import { mockLocation, mockLocations } from "../../mocks/locationsMocks";
 import {
   addLocationThunk,
   deleteLocationThunk,
+  getLocationByIdThunk,
   getLocationsThunk,
 } from "./locationsThunks";
 import {
   loadLocationsActionCreator,
   deleteLocationActionCreator,
 } from "../features/locationsSlice";
+import { loadLocationActionCreator } from "../features/locationSlice";
+import { setLoadingOnActionCreator } from "../features/uiSlice";
 
 jest.mock("react-hot-toast", () => ({
   error: mockToast,
@@ -99,7 +102,7 @@ describe("Given a addLocationsThunk function", () => {
 
 describe("Given a deleteLocationsThunk function", () => {
   describe("When invoked", () => {
-    test("Then it should call the dispatch function whith the loadLoactionActionCreator", async () => {
+    test("Then it should call the dispatch function whith the deleteLoactionActionCreator", async () => {
       const dispatch = jest.fn();
 
       const locationId = "1";
@@ -127,6 +130,46 @@ describe("Given a deleteLocationsThunk function", () => {
       axios.delete = jest.fn().mockRejectedValue({});
 
       const thunk = deleteLocationThunk(locationId);
+
+      await thunk(dispatch);
+
+      expect(mockToast).toHaveBeenCalled();
+    });
+  });
+});
+
+describe("Given a getLocationByIdThunk function", () => {
+  describe("When invoked", () => {
+    test("Then it should call the dispatch function whith the loadLoactionActionCreator", async () => {
+      const dispatch = jest.fn();
+
+      const locationId = "1219";
+
+      axios.get = jest.fn().mockResolvedValue({
+        data: {
+          location: mockLocation,
+        },
+      });
+
+      const loadLocationAction = loadLocationActionCreator(mockLocation);
+
+      const thunk = getLocationByIdThunk(locationId);
+
+      await thunk(dispatch);
+
+      expect(dispatch).toHaveBeenCalledWith(loadLocationAction);
+    });
+  });
+
+  describe("When invoked and the api responds with an error", () => {
+    test("Then it should call the toast's error methos", async () => {
+      const dispatch = jest.fn();
+
+      const locationId = "1219";
+
+      axios.get = jest.fn().mockRejectedValue({});
+
+      const thunk = getLocationByIdThunk(locationId);
 
       await thunk(dispatch);
 
