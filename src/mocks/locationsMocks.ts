@@ -39,3 +39,14 @@ export const mockLocations = {
     },
   ],
 };
+
+export const mockLocation = {
+  id: "1219",
+  name: "Barcelona",
+
+  description:
+    "Il Museo di Arte Contemporanea di Barcellona, conosciuto anche con la sigla MACBA, è dedicato fondamentalmente all'esposizione di opere realizzate durante la seconda metà del XX secolo. È situato nel quartiere de El Raval nella città di Barcellona",
+  images: [
+    "https://www.inexhibit.com/wp-content/uploads/2014/01/MACBA-museum-Barcelona-Inexhibit-5-1.jpg",
+  ],
+};

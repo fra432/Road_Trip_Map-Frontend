@@ -57,8 +57,8 @@ describe("Given a userTripsReducerr", () => {
     });
   });
 
-  describe("When it receives an initial userTrips status with the openTripForm attribute set to false and a openTripFormAction", () => {
-    test("Then it should return a new status with the openTripForm attribute set to true", () => {
+  describe("When it receives an initial userTrips status with the openTripForm property set to false and a openTripFormAction", () => {
+    test("Then it should return a new status with the openTripForm property set to true", () => {
       const initialStatus = {
         userTrips: [],
         openTripForm: false,
@@ -77,8 +77,8 @@ describe("Given a userTripsReducerr", () => {
     });
   });
 
-  describe("When it receives an initial userTrips status with the openTripForm attribute set to true and a closeTripFormAction", () => {
-    test("Then it should return a new status with the openTripForm attribute set to false", () => {
+  describe("When it receives an initial userTrips status with the openTripForm property set to true and a closeTripFormAction", () => {
+    test("Then it should return a new status with the openTripForm property set to false", () => {
       const initialStatus = {
         userTrips: [],
         openTripForm: true,
