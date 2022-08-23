@@ -1,7 +1,7 @@
 import axios from "axios";
 import { mockToast } from "../../mocks/functionsMocks";
 import { mockLocation } from "../../mocks/locationsMocks";
-import { mockTrips, mockUserTrips } from "../../mocks/tripMocks";
+import { mockUserTrips } from "../../mocks/tripMocks";
 import {
   deleteTripActionCreator,
   loadTripsActionCreator,
