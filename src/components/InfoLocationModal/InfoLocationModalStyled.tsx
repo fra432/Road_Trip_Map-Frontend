@@ -45,7 +45,7 @@ const InfoLocationModalStyled = styled.div`
 
       img {
         width: 70%;
-        height: 25rem;
+        height: 20rem;
         object-fit: cover;
       }
     }
@@ -88,6 +88,27 @@ const InfoLocationModalStyled = styled.div`
   @media (max-width: 400px) {
     .location {
       width: 99%;
+
+      &__description {
+        font-size: 0.7rem;
+      }
+    }
+  }
+
+  @media (max-width: 700px) {
+    .location {
+      width: 90%;
+
+      &__description {
+        font-size: 0.9rem;
+      }
+
+      .carousel {
+        img {
+          width: 80%;
+          height: 15rem;
+        }
+      }
     }
   }
 `;
