@@ -21,6 +21,26 @@ const TripsListPageStyled = styled.div`
     padding-bottom: 1rem;
     border-bottom: 1px solid #e4e4e4;
   }
+
+  p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 1.1rem;
+    font-style: italic;
+  }
+
+  .redirect {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    justify-content: center;
+    margin-top: -1.4rem;
+
+    a {
+      cursor: pointer;
+      font-style: italic;
+    }
+  }
 `;
 
 export default TripsListPageStyled;
